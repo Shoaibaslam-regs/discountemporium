@@ -1,0 +1,111 @@
+     <div class="search-guide">
+      <span id="guideText"></span>
+    </div>
+    <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const guideEl = document.getElementById("guideText");
+      const searchInput = document.getElementById("searchInput"); // for pause on focus
+
+      searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase();
+  const products = document.querySelectorAll(".product-card");
+
+  let found = false;
+  products.forEach(card => {
+    const name = card.querySelector("h3").textContent.toLowerCase();
+    if (name.includes(query)) {
+      card.style.display = "block";
+      found = true;
+    } else {
+      card.style.display = "none";
+    }
+  });
+
+  if (!found) {
+    noResults.classList.add("show");
+  } else {
+    noResults.classList.remove("show");
+  }
+});
+      const suggestions = [
+        " Search by price ",
+        " Search by color",
+        " Search by brand",
+        " Search by type",
+      ];
+
+      const VISIBLE_MS = 3500; // how long text stays visible
+      const EXIT_MS = 450; // slideOut animation duration (match CSS)
+      let index = 0;
+      let timerId = null;
+      let paused = false;
+
+      // helper to set text and add enter class (clears any previous classes)
+      function setTextAndEnter(text) {
+        guideEl.classList.remove("enter", "exit");
+        // force reflow so animation can restart reliably
+        void guideEl.offsetWidth;
+        guideEl.textContent = text;
+        guideEl.classList.add("enter");
+      }
+  
+      // Start the loop
+      function scheduleNext() {
+        clearTimeout(timerId);
+        if (paused) return;
+
+        // wait while visible
+        timerId = setTimeout(() => {
+          // start exit animation
+          guideEl.classList.remove("enter");
+          guideEl.classList.add("exit");
+
+          // after exit animation, switch text and show next
+          timerId = setTimeout(() => {
+            index = index % suggestions.length;
+            setTextAndEnter(suggestions[index]);
+            index = (index + 1) % suggestions.length;
+            scheduleNext(); // schedule again
+          }, EXIT_MS);
+        }, VISIBLE_MS);
+      }
+
+      // init first item
+      setTextAndEnter(suggestions[index]);
+      index = (index + 1) % suggestions.length;
+      scheduleNext();
+
+      // Pause on focus, resume on blur
+      if (searchInput) {
+        searchInput.addEventListener("focus", () => {
+          paused = true;
+          clearTimeout(timerId);
+          guideEl.classList.remove("enter", "exit");
+          // keep the current text visible while user types
+          guideEl.style.opacity = 1;
+        });
+        searchInput.addEventListener("blur", () => {
+          paused = false;
+          // resume cycle after short delay so user sees current text
+          timerId = setTimeout(scheduleNext, 500);
+        });
+      }
+
+      // Optional: stop when user hovers guide to read
+      guideEl.parentElement.addEventListener("mouseenter", () => {
+        paused = true;
+        clearTimeout(timerId);
+      });
+      guideEl.parentElement.addEventListener("mouseleave", () => {
+        if (
+          !document.activeElement ||
+          document.activeElement.id !== "searchInput"
+        ) {
+          paused = false;
+          scheduleNext();
+        }
+      });
+    }); 
+    
+    </script>

@@ -1,0 +1,62 @@
+     
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01" />
+    </div>
+    <script>
+const modal = document.getElementById("myModal");
+const modalImg = document.getElementById("img01");
+const span = document.getElementsByClassName("close")[0];
+
+// ✅ Styled modal details container (use class instead of inline styles)
+const modalDetails = document.createElement("div");
+modalDetails.className = "modal-details"; // <-- add class
+modal.appendChild(modalDetails);
+
+// Open modal with product details
+document.addEventListener("click", (e) => {
+  if (e.target.tagName === "IMG") {
+    const index = e.target.dataset.index;
+    const bag = bags[index];
+    modal.style.display = "block";
+    modalImg.src = bag.image;
+    modalDetails.innerHTML = `
+    <p class="modal-discount">${bag.discount}</p>
+      <h2 class="modal-title">${bag.description}<span> (${bag.site})</span></h2>
+      <p class="modal-original">${bag.originalPrice}</p>
+      <p class="modal-price">${bag.price}</p>
+      <br>
+      <button class="modal-order-btn" onclick="window.location.href='${bag.orderLink}'">
+        🛒 Order Now
+      </button>
+    `;
+  }
+});
+
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+// ✅ Like Button Functionality
+let likedProducts = new Set();
+
+productGrid.addEventListener("click", (e) => {
+  if (e.target.classList.contains("like-btn")) {
+    const index = e.target.dataset.index;
+    if (likedProducts.has(index)) {
+      likedProducts.delete(index);
+      e.target.textContent = "♡";
+      e.target.style.backgroundColor = "white";
+      e.target.style.color = "black";
+    } else {
+      likedProducts.add(index);
+      e.target.textContent = "❤️";
+      e.target.style.backgroundColor = "#f1ab89";
+      e.target.style.color = "white";
+    }
+  }
+});
+
+
+</script>

@@ -1,0 +1,228 @@
+   .modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+  
+  .modal-content {
+    margin: auto;
+    border-radius: 30px;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+    border: 5px solid #d6939393;
+    display: block;
+    width: 800%;
+    height: 80%;
+    max-width: 1000px;
+    animation: zoom 0.6s;
+  }
+  
+  @keyframes zoom {
+    from {
+      transform: scale(0);
+    }
+  
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* ✅ Modal Details Base Style */
+  .modal-details {
+    background: #f4f1f1f7;
+    color: #333333ca;
+    padding: 5px;
+    margin: 1px auto;
+    border-radius: 10px;
+    max-width: 1000px;
+    max-height: 22vh;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    line-height: 1.6;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    overflow-y: auto;
+  }
+  
+  .modal-discount {
+    float: right;
+  
+    transform-origin: center;
+    animation: rotateDiscount 3s infinite ease-in-out;
+  }
+  
+  @keyframes rotateDiscount {
+    0% {
+      transform: perspective(300px) rotateY(30deg);
+    }
+  
+    50% {
+      transform: perspective(300px) rotateY(-30deg);
+    }
+  
+    100% {
+      transform: perspective(300px) rotateY(30deg);
+    }
+  }
+  
+  /* ✅ Modal Text */
+  .modal-title {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    margin-bottom: 1px;
+  }
+  
+  .modal-title span {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #820505ef;
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+  .modal-original {
+    margin: 5px 0;
+    font-size: 1.2rem;
+    color: #888;
+    text-decoration: line-through;
+  }
+  
+  .modal-price {
+    margin: 5px 0;
+    font-size: 1.8rem;
+    color: #4caf50;
+    font-weight: bold;
+  }
+  
+  .modal-discount {
+    background: #ff4757;
+    color: white;
+    display: inline-block;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.783);
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-weight: 200;
+    margin-bottom: 15px;
+  }
+  
+  .modal-order-btn {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .modal-order-btn:hover {
+    background: #45a049;
+  }
+    
+  @media screen and (max-width: 991px) {
+     .modal {
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: scroll;
+    }
+    
+    .modal-content {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .modal-details {
+      max-width: 1000px;
+      padding: 8px;
+    }
+    
+    .modal-title {
+      font-size: 1.5rem;
+    }
+  
+    .modal-price {
+      font-size: 1.5rem;
+    }
+     .modal-original {
+      font-size: 1rem;
+    }
+    
+    .modal-order-btn {
+      padding: 12px 15px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+     
+    .modal {
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 50%;
+      overflow: scroll;
+    }
+    
+    .modal-content {
+      width: 100%;
+      height: 100%;
+    }
+     
+    .modal-details { 
+      max-width: 1000px;
+      padding: 8px;
+    }
+  
+    .modal-title {
+      font-size: 1.2rem;
+    }
+    
+    .modal-price {
+      font-size: 1.5rem;
+    }
+    
+    .modal-original {
+      font-size: 1rem;
+    }
+    
+    .modal-order-btn {
+      padding: 12px 15px;
+      font-size: 0.9rem;
+    }
+    .modal-discount{
+      padding:3px 8px;
+    }
+  } 

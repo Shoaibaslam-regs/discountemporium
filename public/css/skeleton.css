@@ -1,0 +1,166 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  } */
+
+  :root {
+    --sd-color: rgb(221, 221, 223);
+    --sc-color: rgb(198, 198, 198);
+    --loading-color: linear-gradient(
+      90deg,
+      rgba(200, 200, 200, 0.3) 25%,
+      rgba(230, 230, 230, 0.5) 50%,
+      rgba(200, 200, 200, 0.3) 75%
+    );
+  }
+
+    /* body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    } */
+
+  .skeleton_header{
+    height: 100px;
+    background-color: var(--sd-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  nav {
+
+    background-color: var(--sc-color);
+    padding: 0.5rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+
+
+    
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .category_skeleton{
+ 
+    position: relative;
+    background-color: var(--sd-color);
+    border-radius: 20px;
+    padding: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skeleton {
+    background: var(--loading-color);
+    background-size: 200% 100%;
+    animation: load 1.5s infinite;
+  }
+
+  .skeleton-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .skeleton-text {
+    width: 80%;
+    height: 20px;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .skeleton-button {
+    width: 50%;
+    height: 30px;
+    border-radius: 20px;
+  }
+
+  @keyframes load {
+    0% {
+      background-position: 200% ;
+    }
+    100% {
+      background-position: -200%;
+    }
+  }
+
+  .footer_skeleton {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: var(--sc-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 991px) {
+    .container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skeleton-image {
+      height: 150px;
+    }
+
+    .skeleton-text {
+      width: 70%; 
+    }
+
+    .skeleton-button {
+      width: 60%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .skeleton_header {
+      height: 80px;
+    }
+
+    nav {
+      height: 50px;
+    }
+
+    .container {
+      grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+    }
+
+    .category_skeleton {
+      padding: 0.5rem;
+    }
+
+    .skeleton-image {
+      height: 120px;
+    }
+
+    .skeleton-text {
+      width: 60%;
+    }
+
+    .skeleton-button {
+      width: 70%;
+    }
+
+    .footer_skeleton {
+      height: 80px;
+    }
+  }
+  .hidden {
+    display: none;
+  }

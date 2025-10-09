@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" /> 
+    <link rel="stylesheet" href="/css/home.css">
+    <title>Discount Emporium</title>
+    {{>headerlink}}
+    <link rel="stylesheet" href="skeleton.css">
+    <link rel="shortcut icon" href="/images/clipart2178626.png" type="image/x-icon">
+  </head>
+  <body>
+    
+    <header class="skeleton_header">
+        <h1
+          data-load ="set"
+          class="skeleton skeleton-text"
+          style="width: 50%; height: 30px"
+        ></h1>
+      </header>
+      <nav
+ 
+        id="navbar"
+        class="load"
+        class="skeleton skeleton-text"
+        style="width: 80%; height: 20px"
+      ></nav>
+
+      <div class="container">
+        <div class="category_skeleton">
+          <div class="skeleton skeleton-image"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-button"></div>
+        </div>
+        <div class="category_skeleton">
+          <div class="skeleton skeleton-image"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-button"></div>
+        </div>
+        <div class="category_skeleton">
+          <div class="skeleton skeleton-image"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-button"></div>
+        </div>
+        <div class="category_skeleton">
+          <div class="skeleton skeleton-image"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-button"></div>
+        </div>
+        <div class="category_skeleton">
+          <div class="skeleton skeleton-image"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-button"></div>
+        </div>
+        <div class="category_skeleton">
+          <div class="skeleton skeleton-image"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-button"></div>
+        </div>
+      </div>
+      <footer class="footer_skeleton">
+        <p class="skeleton skeleton-text" style="width: 60%; height: 20px"></p>
+      </footer>
+  
+   </body>  
+ <script> 
+const skeletonHTML = document.body.innerHTML;
+
+async function redirectToMain() {
+  try {
+    if (navigator.onLine) {
+       const response = await fetch("/index", { method: "HEAD", cache: "no-store" });
+
+      if (response.ok) {
+         window.location.href = "/index";
+      } else {
+         showRetry();
+      }
+
+    } else {
+       console.log("No internet, waiting before retry...");
+      setTimeout(() => {
+        showRetry();
+      }, 12000);
+    }
+
+  } catch (err) {
+     showRetry();
+  }
+}
+
+ function showRetry() {
+  document.body.innerHTML = `
+    <style>
+      @keyframes fadePulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.3; }
+        100% { opacity: 1; }
+      }
+    </style>
+
+    <div style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #f0f0f0, #d9d9d9);
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+    ">
+      <div style="
+        background: #fff;
+        padding: 40px 60px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        max-width: 400px;
+      ">
+        <h2 style="
+          color: #333; 
+          margin-bottom: 10px; 
+          animation: fadePulse 1.5s infinite;
+        ">
+          ⚠️ Still Loading...
+        </h2>
+        <p style="color: #555; margin-bottom: 20px;">
+          It seems your internet is slow or offline.<br>
+          Trying again in a few seconds...
+        </p>
+        <button onclick="retryNow()" style="
+          padding: 10px 22px;
+          background: #007bff;
+          border: none;
+          color: #fff;
+          border-radius: 6px;
+          cursor: pointer;
+          font-weight: 600;
+          transition: background 0.3s;
+        " 
+        onmouseover="this.style.background='#0056b3'" 
+        onmouseout="this.style.background='#007bff'">
+          Retry Now
+        </button>
+      </div>
+    </div>
+  `;
+  
+   setTimeout(redirectToMain, 4000);
+}
+
+ function retryNow() {
+  document.body.innerHTML = skeletonHTML;
+  setTimeout(redirectToMain, 1500);
+}
+ 
+setTimeout(redirectToMain, 500);
+</script>
+ </html>

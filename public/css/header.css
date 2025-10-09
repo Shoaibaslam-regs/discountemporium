@@ -1,0 +1,58 @@
+.header { 
+    font-family: cursive;
+    padding: 15px 20px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+   }
+   
+   .logo-text {
+   
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;  
+    display: flex;
+    align-items: flex-start;
+     gap: 8px; 
+   } 
+   
+   .logo-text span {
+    color: #ff4d4d;
+    opacity: 0;
+    display: inline-block;
+    animation: popIn 1s ease forwards;
+    animation-delay: 1s; /* starts after main text */
+   }
+    
+   /* Animations */
+   @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+   }
+   
+   @keyframes popIn {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+   }
+
+@media screen and (max-width: 600px) {
+   .logo-text{
+      font-size: 2rem;
+    }  
+}
+   
+   
