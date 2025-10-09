@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
-const port = process.env.port || 3000;
+// const port = process.env.PORT || 3000;
 const app = express();  
  
-app.use(express.static('./public'));
+app.use(express.static(path.join(__dirname, "./public")));
 
 const path_second = path.join(__dirname, "./source/views");
 const partial__path = path.join(__dirname, "./source/partials" ); 
@@ -32,8 +32,11 @@ app.get("/contact",(req,res)=>{
   res.render("contact");  
   console.log("contact page is running successfully") 
 });         
-// app.listen(port, () => { 
-//     console.log(`Server running at http://localhost:${port}`);
-//   });   
  
- module.exports = index; 
+
+if (require.main === module) {
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => console.log(`Server running at http://localhost:${port}`));
+} else {
+  module.exports = app; // For Vercel
+}
