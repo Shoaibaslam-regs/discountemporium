@@ -28,7 +28,7 @@ app.get("/product",(req,res)=>{
   console.log("product api is running successfully") 
 });         
 
-app.get("/contact",(req,res)=>{  
+app.get("/contact",(req,res)=>{   
   res.render("contact");  
   console.log("contact page is running successfully") 
 });         
