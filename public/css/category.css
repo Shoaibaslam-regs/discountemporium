@@ -1,4 +1,4 @@
-.category-bar { 
+/* .category-bar { 
     gap: 10px;
     overflow-x: auto;
     white-space: nowrap;
@@ -17,8 +17,7 @@
     display: none; 
   }
   
-  /* Individual category button */
-  .cat-item {
+   .cat-item {
     text-decoration: none;
     font-family: monospace;
     flex: 0 0 auto;
@@ -42,9 +41,7 @@
   .cat-item.active {
     background-color: rgba(255, 206, 114, 0.75);
   }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
+   @media (max-width: 768px) {
     .cat-item {
       font-size: 0.65rem;
       padding: 5px 12px;
@@ -60,4 +57,119 @@
         .category-bar {
             scrollbar-width: none;
           }
-         }
+         } */
+
+
+
+
+
+
+
+         /* 🌈 Base Styling */
+.category-bar { 
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px 8px;
+  margin: 10px auto 20px;  
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: #e878089b #f1f1f1;
+  width: 90%;   
+  max-width: 1200px;
+  justify-content: flex-start;
+  align-items: center;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for WebKit browsers */
+.category-bar::-webkit-scrollbar {
+  height: 6px;
+}
+.category-bar::-webkit-scrollbar-thumb {
+  background: #e878089b;
+  border-radius: 20px;
+}
+.category-bar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* 💡 Optional: hide scrollbar completely */
+@media (max-width: 991px) {
+  .category-bar::-webkit-scrollbar {
+    display: none;
+  }
+  .category-bar {
+    scrollbar-width: none; /* For Firefox */
+  }
+}
+
+/* 🎨 Category Buttons */
+.cat-item {
+  display: inline-block;
+  text-decoration: none;
+  font-family: monospace;
+  flex: 0 0 auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  user-select: none;
+}
+
+.cat-item:hover {
+  background: #f271089d;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cat-item.active {
+  background-color: rgba(255, 206, 114, 0.85);
+  color: #000;
+}
+
+/* 📱 Mobile + Tablet Adjustments */
+@media (max-width: 991px) {
+  .cat-item {
+    font-size: 0.8rem;
+    padding: 7px 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .category-bar {
+    width: 95%;
+    gap: 8px;
+  }
+  .cat-item {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .category-bar {
+    width: 96%;
+    padding: 8px 5px;
+  }
+  .cat-item {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .cat-item {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+  }
+}

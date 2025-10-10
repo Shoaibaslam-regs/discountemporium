@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --font-H: "Rubik Wet Paint", serif;
     --font-text: "Josefin Sans", serif;
     --text-2: black;
@@ -38,9 +38,7 @@
     max-width: 1200px;
     margin: auto;
   }
-  
-  /* ✅ Better H2 + Span Styling */
-  .footer-brand h2 {
+   .footer-brand h2 {
     font-size: 2.5rem;
     font-weight: 800;
     line-height:1;
@@ -66,8 +64,7 @@
     color: var(--text-f);
   }
   
-  /* ✅ Multi-column Links */
-  .footer-links h3 {
+   .footer-links h3 {
     color: var(--theme-color);
     font-size: 1.2rem;
     margin-bottom: 12px;
@@ -88,17 +85,17 @@
   .footer-links ul {
     list-style: none;
     padding: 0;
-    columns: 2; /* <-- auto split links into 2 columns */
+    columns: 2;  
     column-gap: 20px;
-    max-height: 200px; /* keeps footer compact */
-    overflow-y: auto; /* scroll if too many links */
+    max-height: 200px; 
+        overflow-y: auto;  
     scrollbar-width: thin;
     scrollbar-color: #ff4000 #1e1e2f;
   }
   
   .footer-links ul li {
     margin: 4px 0;
-    break-inside: avoid; /* prevents column break in middle of link */
+    break-inside: avoid;  
   }
   
   .footer-links ul li a {
@@ -112,8 +109,7 @@
     color: var(--theme-color);
     transform: translateX(10px);
   }
-  
-  /* Newsletter */
+   
   .footer-newsletter p {
     line-height: 1.2;
     font-size: 0.9rem;
@@ -132,8 +128,7 @@
   }
   
   .social-icons a:hover {
-    /* color: var(--theme-color); */
-    transform: scale(1.15);
+     transform: scale(1.15);
   }
   .social-icons a:hover:nth-child(1){
     color: #000000;
@@ -160,4 +155,272 @@
     color:var(--theme-color);
     font-family: cursive;
   }
-  
+   */
+
+
+
+
+   /* 🌈 ROOT VARIABLES */
+:root {
+  --font-H: "Rubik Wet Paint", serif;
+  --font-text: "Josefin Sans", serif;
+  --text-2: black;
+  --text-color: #ffffff;
+  --main-color: #ff9f1c;
+  --bg-color: #ffbf69;
+  --main-bg: #ffb941;
+  --theme-color: #ff3c00;
+  --text-f: #5c5c5cf5;
+}
+
+/* 🌍 GLOBAL FIXES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: var(--font-text);
+}
+.foot {
+  background-color: #3333332b;
+}
+
+.foot h2 {
+  margin-top: 5%;
+  font-size: 2rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+}
+
+/* 🌙 FOOTER BASE */
+.footer {    
+  background-color: #bebec150;
+  color: #000000;
+  padding: 60px 20px 25px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* 🧱 FOOTER CONTAINER GRID */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 🪞 BRAND SECTION */
+.footer-brand h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  font-family: cursive;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  text-shadow: 0 0 10px rgba(254, 111, 2, 0.367);
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.footer-brand h2 span {
+  color: var(--theme-color);
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: cursive;
+}
+
+.footer-brand p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-f);
+  margin-top: 10px;
+}
+
+/* 🧩 LINKS SECTION */
+/* .footer-links h3 {
+  color: var(--theme-color);
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.footer-links h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 30px;
+  height: 2px;
+  background: var(--theme-color);
+  border-radius: 2px;
+} */
+.footer-links h3 {
+  color: var(--theme-color);
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  position: relative;
+  text-align: left; /* default for desktop */
+}
+
+.footer-links h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 30px;
+  height: 2px;
+  background: var(--theme-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  columns: 2;
+  column-gap: 20px;
+  max-height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ff4000 #1e1e2f;
+}
+
+.footer-links ul li {
+  margin: 4px 0;
+  break-inside: avoid;
+}
+
+.footer-links ul li a {
+  color: var(--text-f);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-links ul li a:hover {
+  color: var(--theme-color);
+  transform: translateX(8px);
+}
+
+/* 📰 NEWSLETTER SECTION */
+.footer-newsletter p {
+  line-height: 1.3;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: var(--text-f);
+}
+
+.footer-newsletter h3 {
+  color: var(--theme-color);
+  line-height: 2;
+}
+
+/* 🌐 SOCIAL ICONS */
+.social-icons a {
+  font-size: 2.5rem;
+  margin-right: 12px;
+  color: #5e5e5ebe;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.15);
+}
+
+.social-icons a:hover:nth-child(1) { color: #000000; }
+.social-icons a:hover:nth-child(2) { color: rgb(9, 176, 205); }
+.social-icons a:hover:nth-child(3) { color: rgb(7, 200, 7); }
+.social-icons a:hover:nth-child(4) { color: green; }
+
+/* 🧾 FOOTER BOTTOM */
+.footer-bottom {
+  text-align: center;
+  margin-top: 35px;
+  font-size: 0.85rem;
+  color: black;
+  border-top: 1px solid #2a2a3d;
+  padding-top: 12px;
+}
+
+.footer-bottom span {
+  color: var(--theme-color);
+  font-family: cursive;
+}
+
+/* 🌈 RESPONSIVE BREAKPOINTS */
+
+/* ✅ Tablets */
+@media (max-width: 992px) {
+  .footer {
+    padding: 50px 30px 20px;
+  }
+
+  .footer-container {
+    gap: 25px;
+  }
+
+  .footer-brand h2 {
+    font-size: 2rem;
+  }
+
+  .footer-brand h2 span {
+    font-size: 1.6rem;
+  }
+}
+
+/* ✅ Mobile Landscape */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .social-icons a {
+    font-size: 2rem;
+  }
+
+  .footer-brand p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ✅ Mobile Portrait */
+@media (max-width: 480px) {
+  .footer {
+    padding: 40px 15px 15px;
+  }
+
+  .footer-container {
+    grid-template-columns: 2fr;
+    text-align: center;
+  }
+
+  .footer-links ul { 
+    columns: 2;
+  }
+
+  .footer-brand h2 {
+    justify-content: center;
+  }
+
+  .social-icons a { 
+    font-size: 2rem;
+    margin-right: 8px;
+  }
+
+  .footer-bottom {
+    font-size: 0.75rem;
+  }
+  .footer-links h3 {
+    text-align: center;
+  }
+
+  .footer-links h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  }

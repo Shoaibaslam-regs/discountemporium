@@ -1,4 +1,4 @@
-.header { 
+/* .header { 
     font-family: cursive;
     padding: 15px 20px;
     background: #fff;
@@ -27,10 +27,9 @@
     opacity: 0;
     display: inline-block;
     animation: popIn 1s ease forwards;
-    animation-delay: 1s; /* starts after main text */
+    animation-delay: 1s;  
    }
-    
-   /* Animations */
+     
    @keyframes fadeInUp {
     to {
       opacity: 1;
@@ -55,4 +54,135 @@
     }  
 }
    
-   
+    */
+
+
+
+    /* 🌟 Header Base Style */
+.header {
+  font-family: cursive;
+  padding: 15px 20px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* 🪄 Logo Text Animation */
+.logo-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.logo-text span {
+  color: #ff4d4d;
+  opacity: 0;
+  display: inline-block;
+  animation: popIn 1s ease forwards;
+  animation-delay: 1s; /* starts after main text */
+}
+
+/* ✨ Animations */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 💻 Desktop (≥1200px) */
+@media screen and (min-width: 1200px) {
+  .logo-text {
+    font-size: 3rem;
+    gap: 10px;
+  }
+}
+
+/* 💼 Laptop / Medium Screen (≤1199px) */
+@media screen and (max-width: 1199px) {
+  .logo-text {
+    font-size: 2.4rem;
+  }
+}
+
+/* 📱 Tablet Landscape (≤991px) */
+@media screen and (max-width: 991px) {
+  .header {
+    padding: 12px 16px;
+  }
+
+  .logo-text {
+    font-size: 2.2rem;
+  }
+}
+
+/* 📲 Tablet Portrait (≤768px) */
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 10px 14px;
+  }
+
+  .logo-text {
+    font-size: 2rem;
+    gap: 6px;
+  }
+}
+
+/* 📞 Mobile Landscape (≤600px) */
+@media screen and (max-width: 600px) {
+  .logo-text {
+    font-size: 1.8rem;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+
+/* 📱 Small Mobile (≤480px) */
+@media screen and (max-width: 480px) {
+  .header {
+    padding: 8px 10px;  
+  }
+
+  .logo-text {
+    font-size: 1.6rem;
+    gap: 4px;
+    /* justify-content: center; */
+  }
+
+  .logo-text span {
+    font-size: 1.4rem;
+  }
+}
+
+/* 🧩 Extra Small Devices (≤360px) */
+@media screen and (max-width: 360px) {
+  .logo-text {
+    font-size: 1.4rem;
+    gap: 3px;
+  }
+}
