@@ -218,10 +218,6 @@ body {
     margin: 1rem;
     padding: 1rem;
   }
-
-  #toast {
-    right: 25%;
-  }
 }
 
 @media (max-width: 480px) {
@@ -232,7 +228,6 @@ body {
   .product-greed {
     grid-template-columns: 1fr;
   }
-
   .product-category {
     width: 90%;
     margin: 0 auto;
@@ -240,8 +235,7 @@ body {
   }
 
   #toast {
-    right: 15%;
-    min-width: 200px;
+    left: 20%;
     font-size: 0.9rem;
   }
 }
