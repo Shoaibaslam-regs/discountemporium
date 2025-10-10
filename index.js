@@ -29,7 +29,7 @@ app.get("/product", (req, res) => {
 app.get("/contact", (req, res) => {
   res.render("contact");
   console.log("contact page is running successfully");
-});
+}); 
 
 if (require.main === module) {
   const port = process.env.PORT || 3000;

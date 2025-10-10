@@ -6,7 +6,7 @@
    --icon-size: 28px;
    position: relative;
    opacity: 1;
-   margin-top: 50px;
+   margin-top: 100px;
    width: 100%;
    max-width: 100%;
 
@@ -133,7 +133,7 @@
      width: 600px;
      height: 55px;
      font-size: 0.85rem;
-   }
+   } 
  }
 
  @media screen and (max-width: 992px) {
@@ -141,6 +141,9 @@
      width: 500px;
      height: 50px;
      font-size: 0.8rem;
+   }
+   .input{
+    margin-top: 70px;
    }
  }
 
@@ -151,7 +154,9 @@
      font-size: 0.8rem;
      border-width: 3px;
    }
-
+   .input{
+    margin-top: 60px;
+   }
    .input svg {
      left: 1.8rem;
      --icon-size: 22px;
@@ -169,7 +174,9 @@
      font-size: 0.75rem;
      padding: 0.8rem 0.8rem 0.8rem calc(0.8rem + var(--icon-size));
    }
-
+   .input{
+    margin-top: 50px;
+   }
    .input svg {
      left: 2rem;
      --icon-size: 20px;
@@ -186,6 +193,9 @@
      height: 38px;
      font-size: 0.7rem;
      border-width: 2px;
+   }
+   .input{
+    margin-top: 50px;
    }
 
    .input svg {

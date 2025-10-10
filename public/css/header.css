@@ -2,16 +2,15 @@
   font-family: cursive;
   padding: 15px 20px;
   background: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
   position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 10000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  left: 0;
-  width: 100%;
-  z-index: 10000;
   transition: transform 0.32s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.25s;
   transform: translateY(0);
   will-change: transform;
@@ -120,7 +119,7 @@ main,
   }
 
   .logo-text {
-    font-size: 1.6rem;
+    font-size: 2rem;
     gap: 4px;
   }
 
