@@ -1,116 +1,110 @@
-/* FAB Container (Bottom Left) */
 .fab-container.left {
-    position: fixed;
-    bottom: 24px;
-    left: 24px;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    gap: 12px;
-    z-index: 9999;
-    /* slight fade-in animation when page loads */
-    animation: fabEnter 0.6s ease-out forwards;
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  gap: 12px;
+  z-index: 9999;
+  animation: fabEnter 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fabEnter {
+  from {
+    transform: translateY(20px) scale(0.8);
     opacity: 0;
   }
-  
-  @keyframes fabEnter {
-    from {
-      transform: translateY(20px) scale(0.8);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-    }
-  }
-  
-  /* Main FAB - Glassmorphism + Glow */
-  .fab-main {
-    background: rgba(242, 128, 14, 0.766);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(213, 213, 213, 0.29);
-    border-radius: 18px;
-    width: 65px;
-    height: 65px;
-    font-size: 1.8rem;
-    color: #fff;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(255, 94, 98, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .fab-main:hover {
-    background: rgba(255, 94, 97, 0.701);
-    transform: rotate(-15deg) scale(1.1);
-    box-shadow: 0 12px 28px rgba(255, 94, 98, 0.55);
-  }
-  
-  /* Option Buttons - Floating Cards */
-  .fab-options {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 10px;
-    opacity: 0;
-    transform: translateY(10px) scale(0.95);
-    pointer-events: none;
-    transition: opacity 0.35s ease, transform 0.35s ease;
-  }
-  .fab-options.active {
-    opacity: 1;
+  to {
     transform: translateY(0) scale(1);
-    pointer-events: auto;
+    opacity: 1;
   }
-  
-  /* Individual Option Styling - Mini Glass Buttons */
-  .fab-option {
-    background: rgba(230, 98, 3, 0.729);
-    backdrop-filter: blur(8px);
-    border: 1.5px solid rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
-    width: 52px;
-    height: 52px;
-    font-size:2rem;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-  }
-  
-  .fab-option:hover {
-    background: rgba(255, 94, 98, 0.4);
-    box-shadow: 0 6px 16px rgba(255, 94, 98, 0.45);
-    transform: scale(1.15) rotate(8deg);
-  }
-  
+}
+
+.fab-main {
+  background: rgba(242, 128, 14, 0.766);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(213, 213, 213, 0.29);
+  border-radius: 18px;
+  width: 65px;
+  height: 65px;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 94, 98, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fab-main:hover {
+  background: rgba(255, 94, 97, 0.701);
+  transform: rotate(-15deg) scale(1.1);
+  box-shadow: 0 12px 28px rgba(255, 94, 98, 0.55);
+}
+
+.fab-options {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.fab-options.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.fab-option {
+  background: rgba(230, 98, 3, 0.729);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  width: 52px;
+  height: 52px;
+  font-size: 2rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.fab-option:hover {
+  background: rgba(255, 94, 98, 0.4);
+  box-shadow: 0 6px 16px rgba(255, 94, 98, 0.45);
+  transform: scale(1.15) rotate(8deg);
+}
+
 /* Responsive Tweaks */
 @media (max-width: 768px) {
-    .fab-main {
-      width: 58px;
-      height: 58px;
-      font-size: 1.6rem;
-    }
-    .fab-option {
-      width: 46px;
-      height: 46px;
-      font-size: 1.15rem;
-    }
+  .fab-main {
+    width: 58px;
+    height: 58px;
+    font-size: 1.6rem;
   }
-  @media (max-width: 480px) {
-    .fab-main {
-      width: 50px;
-      height: 50px;
-      font-size: 1.4rem;
-    }
-    .fab-option {
-      width: 42px;
-      height: 42px;
-      font-size: 1rem;
-    }
+  .fab-option {
+    width: 46px;
+    height: 46px;
+    font-size: 1.15rem;
   }
-  
+}
+@media (max-width: 480px) {
+  .fab-main {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+  }
+  .fab-option {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+}

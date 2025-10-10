@@ -1,11 +1,11 @@
-     <div class="search-guide">
-      <span id="guideText"></span>
-    </div>
-    <script>
+ <div class="search-guide">
+  <span id="guideText"></span>
+</div>
+<script>
 
     document.addEventListener("DOMContentLoaded", () => {
       const guideEl = document.getElementById("guideText");
-      const searchInput = document.getElementById("searchInput"); // for pause on focus
+      const searchInput = document.getElementById("searchInput");
 
       searchInput.addEventListener("input", () => {
   const query = searchInput.value.toLowerCase();
@@ -35,8 +35,8 @@
         " Search by type",
       ];
 
-      const VISIBLE_MS = 3500; // how long text stays visible
-      const EXIT_MS = 450; // slideOut animation duration (match CSS)
+      const VISIBLE_MS = 3500;  
+      const EXIT_MS = 450;  
       let index = 0;
       let timerId = null;
       let paused = false;

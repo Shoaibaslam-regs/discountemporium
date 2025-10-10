@@ -1,8 +1,36 @@
-  <header class="header">
+<header class="header">
   <div class="logo">
     <h1 class="logo-text">
-      DISCOUNTs <span>Emporium</span> 
+      DISCOUNTs
+      <span>Emporium</span>
     </h1>
   </div>
-</header> 
- 
+</header>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const header =
+      document.querySelector('.header'); if (!header) {
+        console.warn('No element
+  with .header found.'); return; } const setHeaderHeight = () => { const h =
+        Math.ceil(header.getBoundingClientRect().height);
+        document.documentElement.style.setProperty('--header-height', h + 'px');
+      };
+    setHeaderHeight(); window.addEventListener('resize', setHeaderHeight); let
+      lastScroll = window.scrollY || document.documentElement.scrollTop; let ticking
+        = false; const SHOW_THRESHOLD = 20; const MIN_TO_HIDE = 50;
+    window.addEventListener('scroll', () => {
+      const current = window.scrollY ||
+        document.documentElement.scrollTop; if (!ticking) {
+          window.requestAnimationFrame(() => {
+            if (current > lastScroll && (current -
+              lastScroll) > SHOW_THRESHOLD && current > MIN_TO_HIDE) {
+              header.classList.add('hide');
+            } else if (lastScroll > current && (lastScroll -
+              current) > SHOW_THRESHOLD) { header.classList.remove('hide'); } if (current >
+                10) header.classList.add('scrolled'); else
+              header.classList.remove('scrolled'); lastScroll = current; ticking = false;
+          }); ticking = true;
+        }
+    }, { passive: true });
+  });
+</script>

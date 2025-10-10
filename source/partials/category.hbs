@@ -1,33 +1,29 @@
 
-    <div class="category-bar">  
-      <a href="" class="cat-item" data-path="">Clothing</a>
-      <a href="/product" class="cat-item" data-path="/product">Ladies Bags</a>
-      <a href="" class="cat-item" data-path="">Kids Bags</a>
-      <a href="" class="cat-item" data-path="">Shoes</a>
-      <a href="" class="cat-item" data-path="">hsaoisa</butt>
-      <a href="" class="cat-item" data-path="">Womens</a>
-      <a href="" class="cat-item" data-path="">kids</a>
-      <a href="" class="cat-item" data-path="">footwear</a>
-      <a href="" class="cat-item" data-path="">Electronics</a>
-      <a href="" class="cat-item" data-path="">Beauty</a>
-      <a href="" class="cat-item" data-path="">Home</a>
-      <a href="" class="cat-item" data-path="">Kitchen</a>
-      <a href="" class="cat-item" data-path="">Sports</a>
-      <a href="" class="cat-item" data-path="">Toys</a>
-      <a href="" class="cat-item" data-path="">Accessories</a>
-    </div>  
-    <script>  
+<div class="category-bar">
+  <a href class="cat-item" data-path>Clothing</a>
+  <a href="/product" class="cat-item" data-path="/product">Ladies Bags</a>
+  <a href class="cat-item" data-path>Kids Bags</a>
+  <a href class="cat-item" data-path>Shoes</a>
+  <a href class="cat-item" data-path>hsaoisa</butt>
+  <a href class="cat-item" data-path>Womens</a>
+  <a href class="cat-item" data-path>kids</a>
+  <a href class="cat-item" data-path>footwear</a>
+  <a href class="cat-item" data-path>Electronics</a>
+  <a href class="cat-item" data-path>Beauty</a>
+  <a href class="cat-item" data-path>Home</a>
+  <a href class="cat-item" data-path>Kitchen</a>
+  <a href class="cat-item" data-path>Sports</a>
+  <a href class="cat-item" data-path>Toys</a>
+  <a href class="cat-item" data-path>Accessories</a>
+</div>
+<script>  
   
   const navLinks = document.querySelectorAll(".cat-item");
 
   // Highlight on click
   navLinks.forEach(link => {
     link.addEventListener("click", function (e) {
-      // optional: prevent full reload if needed
-      // e.preventDefault(); 
-
-      // remove active from all
-      navLinks.forEach(l => l.classList.remove("active"));
+       navLinks.forEach(l => l.classList.remove("active"));
       // add to clicked one
       this.classList.add("active");
     });
@@ -44,4 +40,4 @@
 
  
 
-</script> 
+</script>
