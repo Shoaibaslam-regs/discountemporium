@@ -82,9 +82,7 @@
   box-shadow: 0 6px 16px rgba(255, 94, 98, 0.45);
   transform: scale(1.15) rotate(8deg);
 }
-
-/* Responsive Tweaks */
-@media (max-width: 768px) {
+ @media (max-width: 768px) {
   .fab-main {
     width: 58px;
     height: 58px;

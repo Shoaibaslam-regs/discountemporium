@@ -1,4 +1,5 @@
- <div class="fab-container left">
+ <!-- fab.handlebars -->
+<div class="fab-container left">
   <button class="fab-main" id="fabMain">☰</button>
   <div class="fab-options" id="fabOptions">
     <button class="fab-option" id="scrollTopBtn">↑</button>
@@ -10,3 +11,49 @@
     </button>
   </div>
 </div>
+
+<script> 
+(function () { 
+  document.addEventListener("click", (e) => {
+    const fabMain = document.getElementById("fabMain");
+    const fabOptions = document.getElementById("fabOptions");
+ 
+    if (e.target.id === "fabMain") {
+      fabOptions.classList.toggle("active");
+      fabMain.textContent = fabOptions.classList.contains("active") ? "✖" : "☰";
+    }
+ 
+    if (e.target.id === "scrollTopBtn") {
+      smoothScrollToTop();
+    }
+  });
+ 
+  function smoothScrollToTop() {
+    const duration = 700;
+    const start = window.scrollY;
+    const startTime = performance.now();
+
+    function animateScroll(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      window.scrollTo(0, start * (1 - ease));
+      if (progress < 1) requestAnimationFrame(animateScroll);
+    }
+
+    requestAnimationFrame(animateScroll);
+  }
+ 
+  const fabContainer = document.querySelector(".fab-container");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      fabContainer.style.display = "flex";
+    } else {
+      fabContainer.style.display = "none";
+    }
+  });
+})();
+ function openCart() {
+  window.location.href = "/";
+}
+</script>
