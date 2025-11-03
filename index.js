@@ -11,7 +11,7 @@ app.set("view engine", "hbs");
 app.set("views", path_second);
 hbs.registerPartials(partial__path);
   
-app.get("/", (req, res) => {
+app.get("/", (req, res) => { 
   res.status(200).render("skeleton");
   console.log("skeleton api is running successfully");
 });

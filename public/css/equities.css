@@ -66,18 +66,24 @@
   overflow-y: auto;
 }
 
-.modal-discount {
-  float: right;
-  background: #ff4757;
-  color: white;
-  display: inline-block;
-  padding: 5px 12px;
-  border-radius: 5px;
-  font-weight: 500;
-  margin-bottom: 15px;
-  animation: rotateDiscount 3s infinite ease-in-out;
-}
 
+.modal-discount {
+  float: right; 
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, hsl(0, 89%, 62%), #a38686);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 30px 8px 30px 8px;  
+  box-shadow: 0 4px 8px rgba(255, 59, 59, 0.4);
+  z-index: 10;
+  pointer-events: none;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  transform-origin: center;
+  animation: rotateDiscount 3s infinite ease-in-out;}
+  
 @keyframes rotateDiscount {
 
   0%,
