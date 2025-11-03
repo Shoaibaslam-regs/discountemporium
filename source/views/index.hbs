@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/css/index.css">
     {{>headerlink}}
     <title>Discount Emporium</title>
-  </head>
+   </head>
 
   <body>
     <!-- Toast Container -->
@@ -16,11 +16,11 @@
     {{>homesearch}}
     <p class="sub">Search deals with discounts — fast and filtered.</p>
     <div class="no-results" id="noResults" style="display: none">
-      No products found 🚫
+    
     </div>
     {{>category}}
     <div class="containerid">
-      <div class="product-greed" id="productGrid"></div>
+      <div class="product-greed" id="productOut"></div>
     </div>
     {{>footer}}
   </body>
@@ -56,8 +56,7 @@
     },
     {
       name: "Ladies Bag",
-      image:
-        "https://www.luxe-cheshire.com/cdn/shop/collections/luxe_category_image_bags_v1_1600x.jpg?v=1745940159",
+      image:"https://www.luxe-cheshire.com/cdn/shop/collections/luxe_category_image_bags_v1_1600x.jpg?v=1745940159",
       visit: "/product",
     },
     {
@@ -153,7 +152,7 @@
   ];
 
   const searchInput = document.getElementById("searchInput");
-  const productGrid = document.getElementById("productGrid");
+  const productGrid = document.getElementById("productOut");
   const noResults = document.getElementById("noResults");
 
   function displayProducts(filteredProducts) {
@@ -203,10 +202,11 @@
         card.style.display = "none";
       }
     });
-
     if (!found) {
       noResults.classList.add("show");
-    } else {
+      const value = document.getElementById("searchInput").value.trim();
+      noResults.innerHTML = `No "${value}" products found 🚫`;
+     } else {
       noResults.classList.remove("show");
     }
   });

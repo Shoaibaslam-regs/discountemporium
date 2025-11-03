@@ -1,52 +1,48 @@
+ <!-- fab.handlebars -->
+<div class="fab-container left">
+  <button class="fab-main" id="fabMain">☰</button>
+  <div class="fab-options" id="fabOptions">
+    <button class="fab-option" id="scrollTopBtn">↑</button>
+    <button class="fab-option" onclick="openCart()">
+      <i class="bx bx-home"></i>
+    </button>
+    <button class="fab-option" onclick="window.location.href='/contact'">
+      <i class="bx bx-phone-outgoing bx-tada"></i>
+    </button>
+  </div>
+</div>
 
-    <!-- Bottom-Left Floating Action Button -->
-    <div class="fab-container left">
-      <button class="fab-main" id="fabMain">☰</button>
-      <div class="fab-options" id="fabOptions">
-        <button class="fab-option" onclick="scrollToTop()">⬆</button>
-        <button class="fab-option" onclick="openCart()"><i class="bx bx-home "></i></button>
-        <button
-          class="fab-option"
-          onclick="window.location.href='/contact'"> <i class="bx bx-phone-outgoing bx-tada "></i></button>
-      </div>
-    </div>
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const fabMain = document.getElementById("fabMain");
+  const fabOptions = document.getElementById("fabOptions");
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const fabMain = document.getElementById("fabMain");
-      const fabOptions = document.getElementById("fabOptions");
+  // toggle menu
+  fabMain.addEventListener("click", () => {
+    fabOptions.classList.toggle("active");
+    fabMain.textContent = fabOptions.classList.contains("active") ? "✖" : "☰";
+  });
 
-      fabMain.addEventListener("click", () => {
-        fabOptions.classList.toggle("active");
-        fabMain.textContent = fabOptions.classList.contains("active")
-          ? "✖"
-          : "☰";
-      });
-    });
-    function scrollToTop() {
-      const start = window.scrollY;
-      const duration = 600; // animation duration in ms
-      const startTime = performance.now();
+  // smooth scroll to top
+  scrollTopBtn.addEventListener("click", () => {
+    const duration = 600;
+    const start = window.scrollY;
+    const startTime = performance.now();
 
-      function animateScroll(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1); // 0 → 1
-
-        // Easing function for smoother effect
-        const ease = 1 - Math.pow(1 - progress, 3);
-
-        window.scrollTo(0, start * (1 - ease));
-
-        if (progress < 1) {
-          requestAnimationFrame(animateScroll);
-        }
-      }
-
-      requestAnimationFrame(animateScroll);
+    function animateScroll(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      window.scrollTo(0, start * (1 - ease));
+      if (progress < 1) requestAnimationFrame(animateScroll);
     }
 
-    function openCart() {
-       window.location.href = "/"; 
-    }
+    requestAnimationFrame(animateScroll);
+  });
+});
 
-</script> 
+function openCart() {
+  window.location.href = "/";
+}
+</script>

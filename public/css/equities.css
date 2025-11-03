@@ -195,7 +195,7 @@
 
 @media (max-width: 480px) {
   .modal {
-    height: 50%;
+    height: 100%;
     padding-top: 60px;
   }
 
