@@ -311,47 +311,55 @@ const bags = [
       orderLink: "https://spunkymart.pk/products/glitter-clutch-bag-women-evening-formal-purse",
       description: "Glitter Clutch Bag Women Evening Formal Purse",
       site: "Spunkymart",
-    }
+    },
   
   
-  // {
-  //   image: "",
-  //   originalPrice: "pkr /-",
-  //   price: ,
-  //   discount: "-%",
-  //   orderLink: "",
-  //   description: "",
-  //   site: "",
-  // },
-  // {
-  //   image: "",
-  //   originalPrice: "pkr /-",
-  //   price: ,
-  //   discount: "-%",
-  //   orderLink: "",
-  //   description: "",
-  //   site: "",
-  // },
-  // {
-  //   image: "",
-  //   originalPrice: "pkr /-",
-  //   price: ,
-  //   discount: "-%",
-  //   orderLink: "",
-  //   description: "",
-  //   site: "",
-  // },
-  // {
-  //   image: "",
-  //   originalPrice: "pkr /-",
-  //   price:,
-  //   discount: "-%",
-  //   orderLink: "",
-  //   description: "",
-  //   site: "",
-  // },
-]; 
-
+  {
+    image: "https://www.gulahmedshop.com/cdn/shop/files/428941-blue-tote-bag-front-ideas.jpg?v=1758371201",
+    originalPrice: "pkr 6,990/-",
+    price: 4683,
+    discount: "-30% OFF",
+    orderLink: "https://www.gulahmedshop.com/products/blue-tote-bag-ibs-ttb25-031",
+    description: "Blue Tote Bag IBS-TTB25-031",
+    site: "Gul Ahmed",
+  },
+  {
+    image: "https://www.gulahmedshop.com/cdn/shop/files/434020-blue-tote-bag-front-ideas.jpg?v=1758371207",
+    originalPrice: "pkr 5,690/-",
+    price: 3983,
+    discount: "-30% OFF",
+    orderLink: "https://www.gulahmedshop.com/products/blue-tote-bag-ibs-ttb25-040?pr_prod_strat=e5_desc&pr_rec_id=d7c9a0fad&pr_rec_pid=8066076475439&pr_ref_pid=8066075623471&pr_seq=uniform",
+    description: "Blue Tote Bag IBS-TTB25-040",
+    site: "Gul Ahmed",
+  },
+  {
+    image: "https://www.gulahmedshop.com/cdn/shop/files/434018-blue-tote-bag-front-2-ideas.jpg?v=1758371209",
+    originalPrice: "pkr 6,490/-",
+    price: 4543,
+    discount: "-30% OFF",
+    orderLink: "https://www.gulahmedshop.com/products/blue-tote-bag-ibs-ttb25-038?pr_prod_strat=e5_desc&pr_rec_id=76421ccf2&pr_rec_pid=8066076278831&pr_ref_pid=8066076475439&pr_seq=uniform",
+    description: "Blue Tote Bag IBS-TTB25-038",
+    site: "Gul Ahmed ", 
+  },
+  {
+    image: "https://www.gulahmedshop.com/cdn/shop/files/427778-dark-beige-tote-bag-front-gulahmed.jpg?v=1758371202",
+    originalPrice: "pkr 6,490/-",
+    price:4543,
+    discount: "-30% OFF",
+    orderLink: "https://www.gulahmedshop.com/products/dark-beige-tote-bag-ibs-ttb25-019?pr_prod_strat=e5_desc&pr_rec_id=658d39645&pr_rec_pid=8066074837039&pr_ref_pid=8066076377135&pr_seq=uniform",
+    description: "Dark Beige Tote Bag IBS-TTB25-019",
+    site: "Gul Ahmed",
+  },
+  {
+    image: "https://www.gulahmedshop.com/cdn/shop/files/427777-maroon-tote-bag-front-gulahmed.jpg?v=1758371195",
+    originalPrice: "pkr 6,490/-",
+    price:4543,
+    discount: "-30% OFF",
+    orderLink: "https://www.gulahmedshop.com/products/maroon-tote-bag-ibs-ttb25-018?pr_prod_strat=e5_desc&pr_rec_id=70f57f7c8&pr_rec_pid=8066074443823&pr_ref_pid=8066074837039&pr_seq=uniform",
+    description: "Maroon Tote Bag IBS-TTB25-018 ",
+    site: "Gul Ahmed",
+  } ,
+];
  
 // Populate gallery
 bags.forEach((bag, index) => {
