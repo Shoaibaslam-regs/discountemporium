@@ -1,4 +1,3 @@
-const productGrid = document.getElementById("productGrid");
 let bags = [];
 async function loadProducts() {
   const category = window.CATEGORY;
@@ -14,16 +13,21 @@ async function loadProducts() {
 }
 
 loadProducts();
-
-// Populate gallery
+ 
 bags.forEach((bag, index) => {
   const item = document.createElement("div");
   item.classList.add("gallery-item");
   item.innerHTML = `
-        <a href="#">
-        <img src="${bag.image}" alt="bag" data-index="${index}"
-        onerror="this.onerror=null; this.src='/images/pngegg.png';">
-        </a>
+         <a href="#">
+  <img 
+    src="${bag.image}" 
+    alt="${bag.description} – ${bag.site} handbag" 
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    onerror="this.onerror=null; this.src='/images/pngegg.png';">
+</a>
+
         <span class="discount-tag">${bag.discount}</span>
         <div class="product-description">${bag.description} <span>(${bag.site})</span></div>
         <div class="overlay">
@@ -37,6 +41,7 @@ bags.forEach((bag, index) => {
  
  
 
+const productGrid = document.getElementById("productGrid");
 const searchInput = document.getElementById("searchInput");
 const noResults = document.getElementById("noResults");
 const visible = document.getElementById("product_visible");
@@ -68,8 +73,7 @@ function displayProductsInContainer(container, items) {
   });
 }
 
-function displayProducts(filteredProducts) {
-  // If empty query (clear search) -> show main grid
+function displayProducts(filteredProducts) { 
   if (!filteredProducts) {
     noResults.style.display = "none";
     productGrid.style.display = "";
@@ -77,35 +81,29 @@ function displayProducts(filteredProducts) {
     return;
   }
 
-  if (filteredProducts.length === 0) {
-    // show search container with no results message
+  if (filteredProducts.length === 0) { 
     productGrid.style.display = "none";
     visible.style.display = "";
     noResults.style.display = "block";
     const value = searchInput.value.trim();
     noResults.innerHTML = `No "${value}" products found 🚫`;
-    visible.innerHTML = ""; // ensure container empties
+    visible.innerHTML = "";  
     return;
   }
-
-  // Show results in search container and hide original grid
+ 
   noResults.style.display = "none";
   productGrid.style.display = "none";
   visible.style.display = "";
   displayProductsInContainer(visible, filteredProducts);
 }
-
-// On page load populate main grid
 displayProductsInContainer(productGrid, bags);
- // Initialize Fuse.js
+  
 const options = {
   keys: ["description", "site"],
   includeScore: true,
   threshold: 0.3,
 };
-
-const fuse = new Fuse(bags, options);
-
+ 
 function filterProducts() {
   const query = searchInput.value.trim();
   if (!query) {

@@ -1,35 +1,48 @@
  <!-- fab.handlebars -->
 <div class="fab-container left">
   <button class="fab-main" id="fabMain">☰</button>
+
   <div class="fab-options" id="fabOptions">
-    <button class="fab-option" id="scrollTopBtn"> 
-      &uarr;
-     </button>
-    <button class="fab-option" onclick="openCart()">
-      <i class="bx bx-home"></i>
-    </button>
+    <button class="fab-option" id="scrollTopBtn">&uarr;</button>
+    <button class="fab-option" id="menuBtn"><i class='bx  bx-sidebar'></i></button>
+    <button class="fab-option" onclick="openCart()"><i class="bx bx-home"></i></button>
     <button class="fab-option" onclick="window.location.href='/contact'">
       <i class="bx bx-phone-outgoing bx-tada"></i>
     </button>
   </div>
 </div>
-
-<script> 
-(function () { 
-  document.addEventListener("click", (e) => {
-    const fabMain = document.getElementById("fabMain");
-    const fabOptions = document.getElementById("fabOptions");
  
+<div class="sidebar closed" id="sidebar">
+  <h2>Interaction with us</h2>
+  <ul>
+    <li><a class="active" href="/about"><i class='bx bx-male icon'></i> About Us</a></li>
+    <li><a><i class='bx bx-female icon'></i> Women</a></li>
+    <li><a><i class='bx bx-child icon'></i> Kids</a></li>
+    <li><a><i class='bx bx-t-shirt icon'></i> Shirts</a></li>
+    <li><a><i class='bx bx-user-pin icon'></i> Shalwar Kameez</a></li>
+    <li><a><i class='bx bx-purchase-tag icon'></i> Discounts</a></li>
+    <li><a><i class='bx bx-home icon'></i> Household</a></li>
+  </ul>
+</div>
+ 
+<div class="content" id="content"></div>
+
+<script>
+(function () {
+  const fabMain = document.getElementById("fabMain");
+  const fabOptions = document.getElementById("fabOptions");
+
+  document.addEventListener("click", (e) => {
     if (e.target.id === "fabMain") {
       fabOptions.classList.toggle("active");
       fabMain.textContent = fabOptions.classList.contains("active") ? "✖" : "☰";
     }
- 
+
     if (e.target.id === "scrollTopBtn") {
       smoothScrollToTop();
     }
   });
- 
+
   function smoothScrollToTop() {
     const duration = 600;
     const start = window.scrollY;
@@ -45,17 +58,23 @@
 
     requestAnimationFrame(animateScroll);
   }
- 
+
   const fabContainer = document.querySelector(".fab-container");
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 200) {
-      fabContainer.style.display = "flex";
-    } else {
-      fabContainer.style.display = "none";
-    }
+    fabContainer.style.display = window.scrollY > 200 ? "flex" : "none";
   });
 })();
- function openCart() {
+
+function openCart() {
   window.location.href = "/";
 }
+ 
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.getElementById("sidebar");
+const content = document.getElementById("content");
+
+menuBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("closed");
+  content.classList.toggle("full");
+});
 </script>

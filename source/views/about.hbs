@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    {{>headerlink}}
+</head>
+<body>
+    {{>fab}}
+    {{>header}}
+    <div class="doc-container">
+      <h1>DISCOUNT EMPORIUM – PROJECT DOCUMENTATION</h1>
+      <p>
+        This documentation explains how the Discount Emporium system works, how
+        data is managed, and how each section of the frontend communicates with
+        the backend API.
+      </p>
+
+      <div class="info-box">
+        <strong>Goal</strong>
+        <p>
+          Provide users with real discounted products from verified brands in
+          Pakistan, and redirect them safely to the brand's official website to
+          complete the purchase.
+        </p>
+        Users often visit many online stores to check prices. This wastes time
+        and increases the chance of missing deals.
+        <p>
+          <span
+            >Discount Emporium fixes this by offering everything in a single
+            platform.</span
+          >
+        </p>
+      </div>
+
+      <h2>1. Website Overview</h2>
+      <p>
+        Discount Emporium is a web-based discount discovery platform designed to
+        help users easily find discounted products across multiple Pakistani
+        brands. Online shopping platforms and many more offer heavy discounts,
+        but users struggle to check each brand manually.
+      </p>
+
+      <p>
+        The site displays these products with optimized search, filters, and
+        fast UI components to improve user experience.
+      </p>
+
+      <h2>Discount Emporium solve this problem.</h2>
+      <p>
+        The platform collects discounted products from top Pakistani stores and
+        displays them in one clean, organized, mobile-friendly interface. Users
+        can instantly compare prices, search product categories, filter
+        discounts, and directly open brand pages to purchase.
+      </p>
+
+      <p>
+        This website acts as a <span>central hub for discounts</span>, saving
+        users time, energy, and money.
+      </p>
+      <hr />
+
+      <h2>2. Core Problem Statement</h2>
+
+      <p>
+        Consumers in Pakistan often face these issues:<br />
+
+        ✘ Brands do not openly show discounts <br />
+        ✘ Prices vary across stores <br />
+        ✘ Searching each brand website separately takes time <br />
+        ✘ No single trusted platform provides verified discounts <br />
+        ✘ Users miss deals and offers because they don't know where to look
+        <br />
+
+        <span> Discount Emporium solves these problems by providing:</span
+        ><br />
+
+        ✔ One-click access to discount products <br />
+        ✔ Verified discount tags <br />
+        ✔ Multi-brand price comparison <br />
+        ✔ Reliable info updated regularly <br />
+      </p>
+
+      <h2>2. Data Flow</h2>
+      <p></p>
+
+      <ul>
+        <li>All product data is stored as JSON inside <code>/data/</code></li>
+        <li>The API serves product categories through Express routes</li>
+        <li>
+          Each frontend page fetches its category using <code>fetch()</code>
+        </li>
+      </ul>
+
+      <h3>Example API fetch</h3>
+      <pre>
+fetch("/api/products/men")
+  .then(res => res.json())
+  .then(data => renderProducts(data));
+    </pre
+      >
+
+      <hr />
+      <h3>Search System</h3>
+      <p>
+        The search is powered by Fuse.js which provides fuzzy search with high
+        accuracy.
+      </p>
+      <ul><li>Search filtering is done using Fuse.js for better accuracy</li></ul>
+      <pre>
+ const fuse = new Fuse(results, {
+    keys: ["description", "site"],
+    threshold: 0.3,
+    });
+      results = fuse.search(word).map((r) => r.item);
+    });</pre>
+      <hr />
+
+      <h2>4. Backend Structure</h2>
+      <p>The backend is simple and modular:</p>
+
+      <pre>
+/routes/products.js
+/data/men.js
+/data/women.js
+/data/kids.js
+    </pre
+      >
+
+   
+      <hr />
+
+      <h2>5. User Flow</h2>
+      <p>When a user selects a product:</p>
+
+      <ul>
+        <li>They see the product images, description, price, and discount</li>
+        <li>They click “Order Now” to visit the brand’s genuine website</li>
+         </ul>
+ 
+      <hr />
+
+      <h2>6. Performance Optimization</h2>
+      <ul>
+        <li>Lazy-loaded images</li>
+        <li>Clean JSON API</li>
+        <li>Minimal JS execution for speed</li>
+        <li>Reusable components through Handlebars partials</li>
+      </ul>
+
+      <hr />
+      <div class="info-box">
+        <strong>Purpose.</strong>
+        <p>
+          Discount Emporium acts as a dedicated hub for discounted products from Pakistan’s best brands.
+          It organizes, simplifies, and enhances the shopping experience by providing accurate discount 
+          information, clean UI, and fast search features.
+        </p>  
+          <p>The project has strong market potential, can scale into a real business,
+           and solves a real-world problem faced by millions of Pakistani shoppers.  
+        </p>
+      </div>
+
+      
+    </div>
+    {{>footer}}
+</body>
+</html>

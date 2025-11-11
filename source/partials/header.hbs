@@ -31,16 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!ticking) {
       window.requestAnimationFrame(() => {
-        // scrolling down
+         
         if (current > lastScroll && (current - lastScroll) > SHOW_THRESHOLD && current > MIN_TO_HIDE) {
           header.classList.add('hide');
         }
-        // scrolling up
+         
         else if (lastScroll > current && (lastScroll - current) > SHOW_THRESHOLD) {
           header.classList.remove('hide');
         }
-
-        // optionally add a small shadow when user has scrolled a bit
+ 
         if (current > 10) header.classList.add('scrolled');
         else header.classList.remove('scrolled');
 

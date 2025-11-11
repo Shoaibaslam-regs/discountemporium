@@ -1,5 +1,4 @@
-     
-    <!-- Modal -->
+      
     <div id="myModal" class="modal">
       <span class="close">&times;</span>
       <img class="modal-content" id="img01" />
@@ -9,12 +8,10 @@ const modal = document.getElementById("myModal");
 const modalImg = document.getElementById("img01");
 const span = document.getElementsByClassName("close")[0];
 
-// ✅ Styled modal details container (use class instead of inline styles)
 const modalDetails = document.createElement("div");
 modalDetails.className = "modal-details"; // <-- add class
 modal.appendChild(modalDetails);
 
-// Open modal with product details
 document.addEventListener("click", (e) => {
   if (e.target.tagName === "IMG") {
     const index = e.target.dataset.index;
@@ -37,9 +34,7 @@ document.addEventListener("click", (e) => {
 span.onclick = function () {
   modal.style.display = "none";
 };
-
-// ✅ Like Button Functionality
-let likedProducts = new Set();
+ let likedProducts = new Set();
 
 productGrid.addEventListener("click", (e) => {
   if (e.target.classList.contains("like-btn")) {

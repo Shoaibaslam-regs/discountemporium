@@ -22,11 +22,14 @@ app.get("/", (req, res) => {
   console.log("skeleton api is running successfully");
 });
 
-
 app.get("/index", (req, res) => {
   res.render("index");
   console.log("index api is running successfully");
 });
+app.get("/about", (req, res) => {
+  res.render("about");
+  console.log("about api is running successfully");
+}); 
 
 app.get("/men", (req, res) => { 
   res.status(200).render("men");

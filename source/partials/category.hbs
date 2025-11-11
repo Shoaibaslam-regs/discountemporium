@@ -1,10 +1,10 @@
 
 <div class="category-bar">
-  <a href class="cat-item" data-path>Clothing</a>
+  <a href class="cat-item" data-path="">Clothing</a>
   <a href="/product" class="cat-item" data-path="/product">Ladies Bags</a>
   <a href="/mencloth" class="cat-item" data-path="/mencloth">Mens Wear</a>
   <a href class="cat-item" data-path>Shoes</a>
-  <a href class="cat-item" data-path>hsaoisa</butt>
+  <a href class="cat-item" data-path>hsaoisa</a>
   <a href class="cat-item" data-path>Womens</a>
   <a href class="cat-item" data-path>kids</a>
   <a href class="cat-item" data-path>footwear</a>
@@ -20,16 +20,14 @@
   
   const navLinks = document.querySelectorAll(".cat-item");
 
-  // Highlight on click
-  navLinks.forEach(link => {
+   navLinks.forEach(link => {
     link.addEventListener("click", function (e) {
        navLinks.forEach(l => l.classList.remove("active"));
-      // add to clicked one
+       
       this.classList.add("active");
     });
   });
-
-  // Highlight current path (on reload)
+ 
   const currentPath = window.location.pathname;
   navLinks.forEach(link => {
     if (link.getAttribute("data-path") === currentPath) {

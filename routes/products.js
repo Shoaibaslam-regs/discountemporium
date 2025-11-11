@@ -1,15 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
+const home = require("../data/home");
 const men = require("../data/men");
 const menappearl = require("../data/menappearl");
 const ladiesbag = require("../data/ladiesbag");
-// const toys = require("../data/toys");
-// const household = require("../data/household");
 
-const categories = { men, menappearl, ladiesbag};
-
-// GET /api/products/men
+const categories = { home, men, menappearl, ladiesbag};
+ 
 router.get("/:category", (req, res) => {
   const category = req.params.category.toLowerCase();
 

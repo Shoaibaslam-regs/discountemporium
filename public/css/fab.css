@@ -1,7 +1,7 @@
 .fab-container.left {
   position: fixed;
   bottom: 24px;
-  left: 24px;
+  right: 24px;
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-start;
