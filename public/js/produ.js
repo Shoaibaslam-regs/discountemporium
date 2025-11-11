@@ -1,4 +1,4 @@
-
+ 
 const productGrid = document.getElementById("productGrid");
 let bags = []; 
 async function loadProducts() {

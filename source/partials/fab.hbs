@@ -2,7 +2,9 @@
 <div class="fab-container left">
   <button class="fab-main" id="fabMain">☰</button>
   <div class="fab-options" id="fabOptions">
-    <button class="fab-option" id="scrollTopBtn">↑</button>
+    <button class="fab-option" id="scrollTopBtn"> 
+      &uarr;
+     </button>
     <button class="fab-option" onclick="openCart()">
       <i class="bx bx-home"></i>
     </button>
@@ -29,7 +31,7 @@
   });
  
   function smoothScrollToTop() {
-    const duration = 700;
+    const duration = 600;
     const start = window.scrollY;
     const startTime = performance.now();
 

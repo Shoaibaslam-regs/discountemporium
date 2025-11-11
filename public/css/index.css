@@ -132,8 +132,7 @@ body {
 }
 
 .product-category img {
-  max-width: 70%;
-  height: auto;
+  max-width: 70%; 
   border-top-left-radius: 5%;
   border-top-right-radius: 5%;
   border-bottom: 1px solid var(--main-color);
