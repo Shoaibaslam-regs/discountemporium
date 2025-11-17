@@ -91,7 +91,7 @@
   .fab-option {
     width: 46px;
     height: 46px;
-    font-size: 1.15rem;
+    font-size: 1.5rem;
   }
 }
 @media (max-width: 480px) {
@@ -103,6 +103,6 @@
   .fab-option {
     width: 42px;
     height: 42px;
-    font-size: 1rem;
+    font-size: 1.4rem;
   }
 }

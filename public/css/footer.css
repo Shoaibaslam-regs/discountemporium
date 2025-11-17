@@ -27,7 +27,7 @@ body {
 }
 
 .foot h2 {
-  margin-top: 5%;
+  margin-top: 2%;
   font-size: 2rem;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-weight: 100;
@@ -163,8 +163,8 @@ body {
   text-align: center;
   margin-top: 35px;
   font-size: 0.85rem;
-  color: black;
-  border-top: 1px solid #2a2a3d;
+  color: var(--text-f);
+  border-top: 1px solid #63636373;
   padding-top: 12px;
 }
 

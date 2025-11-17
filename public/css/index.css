@@ -139,9 +139,10 @@ body {
   padding-bottom: 1rem;
 }
 
-.product-category h3 {
-  font-family: var(--font-text);
+.product-category h3 {  
+  font-family:Arial, Helvetica, sans-serif;
   color: var(--text-f);
+  font-weight: 500;
   margin: 1rem 0;
 }
 

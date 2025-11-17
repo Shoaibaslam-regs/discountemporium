@@ -21,7 +21,7 @@ bags.forEach((bag, index) => {
          <a href="#">
   <img 
     src="${bag.image}" 
-    alt="${bag.description} – ${bag.site} handbag" 
+    alt="${bag.description} – ${bag.site} product" 
     loading="lazy"
     decoding="async"
     fetchpriority="low"
@@ -39,8 +39,6 @@ bags.forEach((bag, index) => {
   productGrid.appendChild(item);
 });
  
- 
-
 const productGrid = document.getElementById("productGrid");
 const searchInput = document.getElementById("searchInput");
 const noResults = document.getElementById("noResults");
@@ -98,11 +96,6 @@ function displayProducts(filteredProducts) {
 }
 displayProductsInContainer(productGrid, bags);
   
-const options = {
-  keys: ["description", "site"],
-  includeScore: true,
-  threshold: 0.3,
-};
  
 function filterProducts() {
   const query = searchInput.value.trim();
@@ -127,7 +120,7 @@ function filterProducts() {
 
   words.forEach((word) => {
     const fuse = new Fuse(results, {
-      keys: ["description", "site"],
+      keys: ["description", "site","discount","originalPrice"],
       threshold: 0.3,
     });
     results = fuse.search(word).map((r) => r.item);

@@ -24,13 +24,10 @@
           Pakistan, and redirect them safely to the brand's official website to
           complete the purchase.
         </p>
-        Users often visit many online stores to check prices. This wastes time
-        and increases the chance of missing deals.
+       <p> Users often visit many online stores to check prices. This wastes time
+        and increases the chance of missing deals.</p>
         <p>
-          <span
-            >Discount Emporium fixes this by offering everything in a single
-            platform.</span
-          >
+          <span>Discount Emporium fixes this by offering everything in a single platform.</span>
         </p>
       </div>
 
@@ -80,9 +77,36 @@
         ✔ Verified discount tags <br />
         ✔ Multi-brand price comparison <br />
         ✔ Reliable info updated regularly <br />
-      </p>
-
-      <h2>2. Data Flow</h2>
+      </p> 
+      <div class="future-box">
+      <h2>Future Updates (Roadmap)</h2>
+      <p><span>User Accounts</span> Users can:</p>
+    
+     <ul>
+      <li>Save favorite deals</li>
+      <li>Follow brands</li>
+      <li>Set price alerts</li>
+      <li>Create wishlists</li>
+    </ul>
+     <p> <span>Automated Price Tracking</span><br>Track price history and tell the user:</p>
+    <ul>
+      <li>Price dropped 30% this week!</li>
+      <li>This is the lowest price ever.</li>
+    </ul>
+     <p><span>Integration of Affiliate Marketing</span></p>
+    <ul>
+      <li>Sponsored deals</li>
+      <li>features listing</li>
+      <li>Monetized click</li>
+    </ul>
+     <p><span>Discount Notification System</span></p>
+    <ul>
+      <li>Email alert</li>
+      <li>Push notification</li>
+      <li>Mobile app integration</li>
+    </ul>
+    </div>
+      <h2>3. Data Flow</h2>
       <p></p>
 
       <ul>
@@ -109,7 +133,7 @@ fetch("/api/products/men")
       </p>
       <ul><li>Search filtering is done using Fuse.js for better accuracy</li></ul>
       <pre>
- const fuse = new Fuse(results, {
+const fuse = new Fuse(results, {
     keys: ["description", "site"],
     threshold: 0.3,
     });
@@ -151,7 +175,7 @@ fetch("/api/products/men")
 
       <hr />
       <div class="info-box">
-        <strong>Purpose.</strong>
+        <strong>Purpose</strong>
         <p>
           Discount Emporium acts as a dedicated hub for discounted products from Pakistan’s best brands.
           It organizes, simplifies, and enhances the shopping experience by providing accurate discount 
