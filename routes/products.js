@@ -2,11 +2,11 @@ const express = require("express");
 const router = express.Router();
 
 const home = require("../data/home");
-const men = require("../data/men");
-const menappearl = require("../data/menappearl");
+const women = require("../data/womenapparel");
+const menapparel = require("../data/menapparel");
 const ladiesbag = require("../data/ladiesbag");
 
-const categories = { home, men, menappearl, ladiesbag};
+const categories = { home, women, menapparel, ladiesbag};
  
 router.get("/:category", (req, res) => {
   const category = req.params.category.toLowerCase();

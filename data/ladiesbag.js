@@ -8,10 +8,9 @@ module.exports = [
         discount: "-79% OFF",
         orderLink:
           "https://astore.pk/collections/shoulder-bags/products/coco-bag-black",
-        description:
-          "Elegant black leather handbag, perfect for work and casual outings.",
+        description: "Elegant black leather handbag, perfect for work and casual outings.",
         site: "Astore",
-      },
+       },
       {
         image:
           "https://astore.pk/cdn/shop/files/cruisebagbrown.jpg?v=1710488247&width=800",

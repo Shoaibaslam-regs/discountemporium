@@ -35,15 +35,15 @@
 
 .cat-item {
   display: inline-block;
-  text-decoration: none;
-  font-family: monospace;
+  text-decoration: none; 
+  font-style: italic;
   flex: 0 0 auto;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 20px;
   padding: 8px 18px;
   font-size: 0.9rem;
-  font-weight: 500;
+   
   color: #444;
   cursor: pointer;
   transition: all 0.2s ease;

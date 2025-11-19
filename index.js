@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
 const app = express(); 
+// const cookie = require('cookie-parser');
 
 const productRoutes = require("./routes/products");
 // const pageRoutes = require("./routes/pages");
@@ -15,13 +16,16 @@ app.set("views", path_second);
 hbs.registerPartials(partial__path);
   
 app.use("/api/products", productRoutes);
-// app.use("/", pageRoutes);
 
-app.get("/", (req, res) => { 
+app.get("/", (req, res) => {
+  res.status(200).render("splash");
+  console.log("spash api is running successfully");
+});
+
+app.get("/skeleton", (req, res) => {
   res.status(200).render("skeleton");
   console.log("skeleton api is running successfully");
 });
-
 app.get("/index", (req, res) => {
   res.render("index");
   console.log("index api is running successfully");
@@ -31,8 +35,8 @@ app.get("/about", (req, res) => {
   console.log("about api is running successfully");
 }); 
 
-app.get("/men", (req, res) => { 
-  res.status(200).render("men");
+app.get("/women", (req, res) => { 
+  res.status(200).render("women");
   console.log("men api is running successfully");
 });
 
@@ -44,7 +48,7 @@ app.get("/product", (req, res) => {
 app.get("/mencloth", (req, res) => {
   res.render("mencloth");
   console.log("mencloth page is running successfully");
-}); 
+});
 app.get("/contact", (req, res) => {
   res.render("contact");
   console.log("contact page is running successfully");

@@ -1,0 +1,209 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <style>
+    #splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, #afbbc7, #d8dbde, #95928f);
+      z-index: 999999;
+      animation: splashFadeOut 3.6s ease forwards;
+      animation-delay: 2.1s;
+
+    }
+
+    .logo-wrapper {
+      background: rgba(255, 249, 249, 0.672);
+      height: 110px;
+      width: 110px;
+      border-radius: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      transform: scale(0.2);
+      opacity: 0;
+      animation: logoBounceIn 3s cubic-bezier(0.22, 1.5, 0.4, 1) forwards;
+    }
+    .pulse {
+      position: absolute;
+      height: 110px;
+      width: 110px;
+      border-radius: 28px;
+      background: rgba(6, 3, 0, 0.4);
+      animation: pulseGlow 2.8s ease-out infinite;
+      z-index: -1;
+
+    }
+    .logo-text {
+      font-size: 50px;
+      font-weight: 900;
+      font-family: cursive;
+      color: #ff720de4;
+
+
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      animation: flicker 3s infinite alternate;
+
+    }
+     @keyframes flicker {
+
+      0%,
+      19%,
+      21%,
+      23%,
+      25%,
+      54%,
+      56%,
+      100% {
+        text-shadow:
+          0 0 2px #dc742f,
+          0 0 3px #ff4d4d,
+          0 0 4px #ff4d4d,
+          0 0 5px #ff4d4d;
+      }
+
+      20%,
+      24%,
+      55%,
+      90% {
+        text-shadow: none;
+      }
+    }
+ 
+    .logo-text::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: 100%;
+      height: 100%;
+      opacity: 0.2;
+      filter: blur(2px);
+      animation: spark 1.5s infinite;
+    }
+
+    @keyframes spark {
+
+      0%,
+      100% {
+        opacity: 0.2;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(1.05) rotate(1deg);
+      }
+    }
+ 
+    @keyframes logoBounceIn {
+      0% {
+        transform: scale(0.2);
+        opacity: 0;
+      }
+
+      60% {
+        transform: scale(1.15);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: scale(1.9);
+        opacity: 0.1;
+      }
+
+      100% {
+        transform: scale(1.6);
+        opacity: 0;
+      }
+    }
+    .brand-text {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #333;
+      margin: 0;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards;
+
+      animation-delay: 2s;
+      font-family: cursive;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .brand-text span {
+      color: #ff4d4d;
+      opacity: 0;
+      display: inline-block;
+      animation: popIn 2s ease forwards;
+      animation-delay: 1.7s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    @keyframes splashFadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="splash-screen">
+    <div class="logo-wrapper">
+      <div class="pulse"></div>
+      <div class="logo-text">DE</div>
+    </div>
+    <p class="brand-text">Discount <span>Emporium</span></p>
+  </div>
+</body>
+<script>
+  setTimeout(() => { window.location.href = "/skeleton"; }, 4500);</script>
+
+</html>

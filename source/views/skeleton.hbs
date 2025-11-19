@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
   <header class="skeleton_header">
     <h1 data-load="set" class="skeleton skeleton-text" style="width: 50%; height: 30px"></h1>
   </header>
@@ -67,7 +66,6 @@
 </body>
 <script>
   const skeletonHTML = document.body.innerHTML;
-
   async function redirectToMain() {
     try {
       if (navigator.onLine) {
@@ -154,7 +152,7 @@
     setTimeout(redirectToMain, 1500);
   }
 
-  setTimeout(redirectToMain, 500);
+  setTimeout(redirectToMain, 1500);
 </script>
 
 </html>

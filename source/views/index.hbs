@@ -11,9 +11,9 @@
   <body>  
     <div id="toast"></div>
     {{>fab}}
-    {{>header}}
+    {{>header}} 
     {{>homesearch}}
-    <p class="sub">Search deals with discounts — fast and filtered.</p>
+    <p class="sub">Search deals with discounts — fast and filtered.<span>(search category)</span></p>
     <div class="no-results" id="noResults" style="display: none">
     </div>
     {{>category}}    
@@ -61,10 +61,10 @@
     visit:"/mencloth",
   },
   {
-    name: "men",
+    name: "Women apparel",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-omhbgvMeZoAIjxPzXPeCD8HWPXFaQsT6SSFC-Ul0ReKO3F6hr-bFCmkH0smeRibaAsU&usqp=CAU",
-  visit:"/men",
+      "https://cdn.shopify.com/s/files/1/0016/1542/9678/files/Maria_B_e9a10099-1e00-4ecb-b69b-a865c56279a7_1024x1024.jpg?v=1707769741",
+  visit:"/women",
   },
   {
     name: "nike",
@@ -200,7 +200,7 @@
     if (!found) {
       noResults.classList.add("show");
       const value = document.getElementById("searchInput").value.trim();
-      noResults.innerHTML = `No "${value}" products found 🚫`;
+      noResults.innerHTML = `No "${value}" category found 🚫`;
      } else {
       noResults.classList.remove("show");
     }

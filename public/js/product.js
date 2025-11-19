@@ -13,7 +13,7 @@ async function loadProducts() {
 }
 
 loadProducts();
- 
+
 bags.forEach((bag, index) => {
   const item = document.createElement("div");
   item.classList.add("gallery-item");

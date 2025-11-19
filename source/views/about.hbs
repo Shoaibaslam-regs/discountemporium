@@ -10,12 +10,13 @@
     {{>fab}}
     {{>header}}
     <div class="doc-container">
-      <h1>DISCOUNT EMPORIUM – PROJECT DOCUMENTATION</h1>
+      <h1>DISCOUNT EMPORIUM – PROJECT DOCUMENTATION</h1> <br>
+       
       <p>
-        This documentation explains how the Discount Emporium system works, how
-        data is managed, and how each section of the frontend communicates with
-        the backend API.
-      </p>
+      
+       Discount Emporium is a smart and reliable platform designed to help shoppers in Pakistan discover the highest discounts, best prices, and verified deals from multiple brands and online stores — all in one place.
+
+Instead of visiting dozens of websites, users can instantly browse curated promotions, trending offers, hot sales, and budget-friendly products across categories like fashion, accessories, electronics, home items, and more.</p>
 
       <div class="info-box">
         <strong>Goal</strong>
@@ -137,7 +138,7 @@ const fuse = new Fuse(results, {
     keys: ["description", "site"],
     threshold: 0.3,
     });
-      results = fuse.search(word).map((r) => r.item);
+    results = fuse.search(word).map((r) => r.item);
     });</pre>
       <hr />
 
@@ -190,4 +191,4 @@ const fuse = new Fuse(results, {
     </div>
     {{>footer}}
 </body>
-</html>
+ </html>
