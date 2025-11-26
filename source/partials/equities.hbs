@@ -9,7 +9,7 @@ const modalImg = document.getElementById("img01");
 const span = document.getElementsByClassName("close")[0];
 
 const modalDetails = document.createElement("div");
-modalDetails.className = "modal-details"; // <-- add class
+modalDetails.className = "modal-details";
 modal.appendChild(modalDetails);
 
 document.addEventListener("click", (e) => {
@@ -34,24 +34,4 @@ document.addEventListener("click", (e) => {
 span.onclick = function () {
   modal.style.display = "none";
 };
- let likedProducts = new Set();
-
-productGrid.addEventListener("click", (e) => {
-  if (e.target.classList.contains("like-btn")) {
-    const index = e.target.dataset.index;
-    if (likedProducts.has(index)) {
-      likedProducts.delete(index);
-      e.target.textContent = "♡";
-      e.target.style.backgroundColor = "white";
-      e.target.style.color = "black";
-    } else {
-      likedProducts.add(index);
-      e.target.textContent = "❤️";
-      e.target.style.backgroundColor = "#f1ab89";
-      e.target.style.color = "white";
-    }
-  }
-});
-
-
 </script>

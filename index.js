@@ -40,6 +40,10 @@ app.get("/women", (req, res) => {
   console.log("men api is running successfully");
 });
 
+app.get("/save", (req, res) => { 
+  res.status(200).render("save");
+  console.log("save api is running successfully");
+});
 app.get("/product", (req, res) => {
   res.render("product");
   console.log("product api is running successfully");

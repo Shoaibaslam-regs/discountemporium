@@ -224,6 +224,9 @@ font-weight: 500;}
     margin: 1rem;
     padding: 1rem;
   }
+.sub span{
+  font-size: 0.6rem;
+}
 }
 
 @media (max-width: 480px) {
