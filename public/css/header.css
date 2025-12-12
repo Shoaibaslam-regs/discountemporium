@@ -14,7 +14,7 @@
   align-items: center;
   transition: transform 0.32s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.25s;
   transform: translateY(0);
-  will-change: transform;
+  will-change: transform; 
 }
 
 .header.hide {
@@ -37,14 +37,18 @@ main,
 .logo-text {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #333;
   margin: 0;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 1s ease forwards;
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 8px; 
+
+}
+.logo a {
+  text-decoration: none;
+  color: black;
 }
 
 .logo-text span {

@@ -58,6 +58,25 @@ app.get("/contact", (req, res) => {
   console.log("contact page is running successfully");
 }); 
 
+app.get("/kitchen", (req, res) => {
+  res.render("kitchen");
+  console.log("kitchen page is running successfully");
+}); 
+app.get("/clothings", (req, res) => {
+  res.render("clothings");
+  console.log("clothings page is running successfully");
+}); 
+
+app.get("/shoes", (req, res) => {
+  res.render("shoes");
+  console.log("shoes page is running successfully");
+}); 
+
+app.get("/cosmetic", (req, res) => {
+  res.render("cosmetic");
+  console.log("cosmetic page is running successfully");
+}); 
+
 if (require.main === module) {
   const port = process.env.PORT || 3000;
   app.listen(port, () =>

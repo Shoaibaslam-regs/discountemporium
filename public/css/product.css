@@ -229,17 +229,24 @@ main,
   padding: 10px;
   border-top: 1px solid #eee;
   border-radius: 0 0 10px 10px;
-}
+  }
+ 
 
 .like-btn,
 .order-btn {
+
   background: #fff;
   border: none;
   padding: 8px 12px;
   font-size: 16px;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; 
+  box-shadow:
+  inset 10px 4px 6px rgba(128, 127, 127, 0.15), 
+  inset 10px 4px 6px rgba(158, 156, 156, 0.1);
+  backdrop-filter: blur(5px);  
+ 
 }
 
 .like-btn:hover {
