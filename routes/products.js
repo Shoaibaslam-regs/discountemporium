@@ -7,8 +7,9 @@ const ladiesbag = require("../data/ladiesbag");
 const cosmetic = require("../data/cosmetic");
 const household = require("../data/household");
 const shoes  = require("../data/shoes");
+const sport = require("../data/sports");
 
-const categories = {women, menapparel, ladiesbag, cosmetic, household, shoes};
+const categories = {women, menapparel, sport, ladiesbag, cosmetic, household, shoes};
  
 router.get("/:category", (req, res) => {
   const category = req.params.category.toLowerCase();

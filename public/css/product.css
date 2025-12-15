@@ -243,8 +243,8 @@ main,
   cursor: pointer;
   transition: all 0.3s ease; 
   box-shadow:
-  inset 10px 4px 6px rgba(128, 127, 127, 0.15), 
-  inset 10px 4px 6px rgba(158, 156, 156, 0.1);
+  inset 1px 1px 6px rgba(128, 127, 127, 0.15), 
+  inset 1px 1px 6px rgba(158, 156, 156, 0.1);
   backdrop-filter: blur(5px);  
  
 }

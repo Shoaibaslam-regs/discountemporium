@@ -76,6 +76,10 @@ app.get("/cosmetic", (req, res) => {
   res.render("cosmetic");
   console.log("cosmetic page is running successfully");
 }); 
+app.get("/sports", (req, res) => {
+  res.render("sports");
+  console.log("sports page is running successfully");
+}); 
 
 if (require.main === module) {
   const port = process.env.PORT || 3000;
