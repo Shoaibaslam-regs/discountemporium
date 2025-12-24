@@ -3,7 +3,7 @@ const path = require("path");
 const hbs = require("hbs");
 const session = require("express-session");
 require("dotenv").config();
-
+const MongoStore = require("connect-mongo");
 const connectDB = require("./config/db");
 connectDB().catch(err => {
    console.error("DB connection failed", err);});
@@ -16,7 +16,8 @@ app.use(
       saveUninitialized: false,
       cookie: { maxAge: 1000 * 60 * 60 }, 
    })
-);
+);  
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "./public")));

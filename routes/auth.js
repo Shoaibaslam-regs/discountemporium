@@ -37,6 +37,7 @@ router.post("/register", async (req, res) => {
 
   req.session.success = "Registration successful. You can login now.";
   res.redirect("/login");
+
 });
 
 router.post("/login", async (req, res) => {
