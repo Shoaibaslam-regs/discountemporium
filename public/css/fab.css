@@ -106,3 +106,9 @@
     font-size: 1.4rem;
   }
 }
+#userEmail{ 
+  font-size: 0.8rem;
+  color: rgb(39, 39, 39);
+  font-weight:500;    
+  font-family: 'Times New Roman', Times, serif; 
+}

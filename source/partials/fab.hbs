@@ -1,4 +1,3 @@
- <!-- fab.handlebars -->
 <div class="fab-container left">
   <button class="fab-main" id="fabMain">☰</button>
 
@@ -13,20 +12,18 @@
 </div>
  
 <div class="sidebar closed" id="sidebar">
-  <h2>Support Desk</h2>
+  <h2 id="userEmail"></h2>  
   <ul>
-    <li><a class="active" href="/about"><i class='bx  bx-sidebar'></i> About site</a></li>
-    <li><a><i class='bx bx-female icon'></i> Women</a></li>
-    <li><a><i class='bx bx-child icon'></i> Kids</a></li>
-    <li><a><i class='bx bx-male icon'></i></i> Shirts</a></li>
-    <li><a><i class='bx bx-user-pin icon'></i> Shalwar Kameez</a></li>
-    <li><a><i class='bx bx-purchase-tag icon'></i> Discounts</a></li>
-    <li><a href="/save"><i class='bx  bx-save'></i> Save</a></li>
+    <li><a class="active" href="/about"> <i class='bx  bx-book-content'></i>  About site</a></li> 
+    <li><a href="#"><i class='bx bx-purchase-tag icon'></i> Discounts</a></li>
+    <li><a href="/save"> <i class='bx  bx-bookmark-heart'></i>  Save</a></li>
+    <li><a href="/register"><i class='bx  bx-book-open'></i> Registration</a></li>
+    <li><a href="/logout" class="logout-btn"><i class='bx  bx-user'></i> Logout</a></li>
   </ul>
         
         <div class="ad-panel">
           <div class="ad-content">
-            <img src="source" alt="Ad">
+            <img src="/img" alt="Ad">
           </div>
         </div>
  
@@ -35,8 +32,7 @@
     
 </div>
  
-<div class="content" id="content"></div>
-
+<div class="content" id="content"></div> 
 <script>
 (function () {
   const fabMain = document.getElementById("fabMain");

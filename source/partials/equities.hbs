@@ -1,9 +1,24 @@
-      
-    <div id="myModal" class="modal">
-      <span class="close">&times;</span>
-      <img class="modal-content" id="img01" />
-    </div>
-    <script>
+ <!-- Image Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01" />
+</div>
+ <div id="authOverlay">
+  <div id="authPopup">
+    <span id="closeAuthPopup">&times;</span>
+
+  {{#if error}}
+    <p class="popup-error">{{error}}</p>
+  {{/if}}
+
+    <p>“To proceed, please register an account.
+       Already a member? Simply log in to continue. <br>
+    <span>Enjoy exclusive features once you’re signed in!”</span></p>
+    <a href="/register">Register</a> | <a href="/login">Login</a>
+  </div>
+</div>
+
+<script>
 const modal = document.getElementById("myModal");
 const modalImg = document.getElementById("img01");
 const span = document.getElementsByClassName("close")[0];
@@ -16,22 +31,20 @@ document.addEventListener("click", (e) => {
   if (e.target.tagName === "IMG") {
     const index = e.target.dataset.index;
     const bag = bags[index];
-    modal.style.display = "block";
+    modal.style.display = "block"; 
     modalImg.src = bag.image;
     modalDetails.innerHTML = `
-    <p class="modal-discount">${bag.discount}</p>
+      <p class="modal-discount">${bag.discount}</p>
       <h2 class="modal-title">${bag.description}<span> (${bag.site})</span></h2>
       <p class="modal-original">${bag.originalPrice}</p>
       <p class="modal-price">${bag.price}</p>
-      <br>
-      <button class="modal-order-btn" onclick="window.location.href='${bag.orderLink}'">
+      <button class="modal-order-btn" onclick="handleRedirect('${bag.orderLink}')">
         🛒 Order Now
       </button>
     `;
   }
 });
 
-span.onclick = function () {
-  modal.style.display = "none";
-};
+span.onclick = () => { modal.style.display = "none"; };
 </script>
+<script src="/js/redirect.js"></script>

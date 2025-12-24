@@ -13,7 +13,13 @@
     {{>fab}}
     {{>header}}  
     {{>homesearch}}
+   {{#if success}}
+  <div id="notify" class="form-alert success-msg">
+    {{success}}
+  </div>
+  {{/if}}
     {{>middle}}
+    
 
     <p class="sub">Search deals with discounts — fast and filtered.<span>(search category)</span></p>
     <div class="no-results" id="noResults" style="display: none">
@@ -33,5 +39,7 @@
     {{>footer}}
   <script src="/js/home.js"></script>
   <script src="/js/middle.js"></script>
+  <script src="/js/togglepass.js"></script>
+  <script src="/js/mailacc.js"></script>
    </body> 
   </html>

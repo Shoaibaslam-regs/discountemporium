@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  {{>headerlink}}
+
+</head>
+
+<body>
+
+  {{>header}}
+ {{>fab}}
+
+
+  <div class="register-page-wrapper">
+    <h2>Create Account <span><a href="/index"><i class="bx bx-home"></i></a>
+      </span>
+    </h2>
+  {{#if error}}
+  <div id="notify" class="form-alert error-msg">
+    {{error}}
+  </div>
+  {{/if}}
+
+  {{#if success}}
+  <div id="notify" class="form-alert success-msg">
+    {{success}}
+  </div>
+  {{/if}}
+
+    <form action="/register" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <div class="password-field">
+        <input type="password" id="password" name="password" placeholder="Password" required />
+        <i class="bx bx-show toggle-eye" onclick="togglePassword('password', this)"></i>
+      </div>
+
+      <div class="password-field">
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required />
+        <i class="bx bx-show toggle-eye" onclick="togglePassword('confirmPassword', this)"></i>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <div class="register-footer">
+      Already have an account? <a href="/login">Login</a>
+    </div>
+  </div>
+{{>footer}}
+</body>
+<script src="/js/togglepass.js"></script> 
+<script src="/js/mailacc.js"></script>
+
+</html>

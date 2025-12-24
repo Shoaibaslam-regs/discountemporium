@@ -1,92 +1,101 @@
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
-const app = express(); 
-// const cookie = require('cookie-parser');
+const session = require("express-session");
+require("dotenv").config();
 
-const productRoutes = require("./routes/products");
-// const pageRoutes = require("./routes/pages");
+const connectDB = require("./config/db");
+connectDB();
 
+const app = express();
+app.use(
+   session({
+      secret: "your_secret_key",
+      resave: false,
+      saveUninitialized: false,
+      cookie: { maxAge: 1000 * 60 * 60 }, 
+   })
+);
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static(path.join(__dirname, "./public")));
 
-const path_second = path.join(__dirname, "./source/views");
-const partial__path = path.join(__dirname, "./source/partials");
+const viewsPath = path.join(__dirname, "./source/views");
+const partialsPath = path.join(__dirname, "./source/partials");
+
 app.set("view engine", "hbs");
-app.set("views", path_second);
-hbs.registerPartials(partial__path);
-  
+app.set("views", viewsPath);
+hbs.registerPartials(partialsPath);
+const authRoutes = require("./routes/auth");
+const productRoutes = require("./routes/products");
+const redirectRoutes = require("./routes/redirect");
+const savedRoutes = require("./routes/savedItems");
+const authStatusRoutes = require("./routes/authStatus");
+
+
+app.use("/", authRoutes);
+app.use("/", savedRoutes);
+app.use("/", redirectRoutes);
+app.use("/", authStatusRoutes);
 app.use("/api/products", productRoutes);
 
-app.get("/", (req, res) => {
-  res.status(200).render("splash");
-  console.log("spash api is running successfully");
-});
 
-app.get("/skeleton", (req, res) => {
-  res.status(200).render("skeleton");
-  console.log("skeleton api is running successfully");
-});
+
+
+app.get("/", (req, res) => res.render("splash"));
+app.get("/skeleton", (req, res) => res.render("skeleton"));
 app.get("/index", (req, res) => {
-  res.render("index");
-  console.log("index api is running successfully");
+   const success = req.session.success;
+   const error = req.session.error;
+
+   req.session.success = null;
+   req.session.error = null;
+
+   res.render("index", { success, error });
 });
-app.get("/about", (req, res) => {
-  res.render("about");
-  console.log("about api is running successfully");
-}); 
+app.get("/about", (req, res) => res.render("about"));
+app.get("/women", (req, res) => res.render("women"));
+app.get("/save", (req, res) => res.render("save"));
+app.get("/product", (req, res) => res.render("product"));
+app.get("/mencloth", (req, res) => res.render("mencloth"));
+app.get("/contact", (req, res) => res.render("contact"));
+app.get("/kitchen", (req, res) => res.render("kitchen"));
+app.get("/clothings", (req, res) => res.render("clothings"));
+app.get("/shoes", (req, res) => res.render("shoes"));
+app.get("/cosmetic", (req, res) => res.render("cosmetic"));
+app.get("/sports", (req, res) => res.render("sports"));
 
-app.get("/women", (req, res) => { 
-  res.status(200).render("women");
-  console.log("men api is running successfully");
+app.get("/register", (req, res) => {
+   console.log("ERROR:", req.session.error);
+   console.log("SUCCESS:", req.session.success);
+
+   const error = req.session.error;
+   const success = req.session.success;
+
+   req.session.error = null;
+   req.session.success = null;
+
+   res.render("register", { error, success });
 });
 
-app.get("/save", (req, res) => { 
-  res.status(200).render("save");
-  console.log("save api is running successfully");
+app.get("/login", (req, res) => {
+   console.log("LOGIN ERROR:", req.session.error);
+   console.log("LOGIN SUCCESS:", req.session.success);
+   console.log("QUERY:", req.query);
+
+   let error = req.session.error;
+   let success = req.session.success;
+
+   if (req.query.logout === "true") {
+      success = "You have been logged out successfully.";
+   }
+   req.session.error = null;
+   req.session.success = null;
+
+   res.render("login", { error, success });
 });
-app.get("/product", (req, res) => {
-  res.render("product");
-  console.log("product api is running successfully");
-}); 
 
-app.get("/mencloth", (req, res) => {
-  res.render("mencloth");
-  console.log("mencloth page is running successfully");
-});
-app.get("/contact", (req, res) => {
-  res.render("contact");
-  console.log("contact page is running successfully");
-}); 
-
-app.get("/kitchen", (req, res) => {
-  res.render("kitchen");
-  console.log("kitchen page is running successfully");
-}); 
-app.get("/clothings", (req, res) => {
-  res.render("clothings");
-  console.log("clothings page is running successfully");
-}); 
-
-app.get("/shoes", (req, res) => {
-  res.render("shoes");
-  console.log("shoes page is running successfully");
-}); 
-
-app.get("/cosmetic", (req, res) => {
-  res.render("cosmetic");
-  console.log("cosmetic page is running successfully");
-}); 
-app.get("/sports", (req, res) => {
-  res.render("sports");
-  console.log("sports page is running successfully");
-}); 
-
-if (require.main === module) {
-  const port = process.env.PORT || 3000;
-  app.listen(port, () =>
-    console.log(`Server running at http://localhost:${port}`)
-  );
-} else {
-  module.exports = app;
-}
- 
+const port = process.env.PORT || 3000;
+app.listen(port, () =>
+   console.log(`🚀 Server running at http://localhost:${port}`)
+);

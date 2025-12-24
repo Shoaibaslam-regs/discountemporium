@@ -78,51 +78,6 @@ visit:"/women",
   name: "Bluetooth Headphones",
   image:
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-omhbgvMeZoAIjxPzXPeCD8HWPXFaQsT6SSFC-Ul0ReKO3F6hr-bFCmkH0smeRibaAsU&usqp=CAU",
-},
-{
-  name: "Bluetooth Headphones",
-  image:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-omhbgvMeZoAIjxPzXPeCD8HWPXFaQsT6SSFC-Ul0ReKO3F6hr-bFCmkH0smeRibaAsU&usqp=CAU",
-},
-{
-  name: "Bluetooth Headphones",
-  image:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-omhbgvMeZoAIjxPzXPeCD8HWPXFaQsT6SSFC-Ul0ReKO3F6hr-bFCmkH0smeRibaAsU&usqp=CAU",
-},
-{
-  name: "Bluetooth Headphones",
-  image:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-omhbgvMeZoAIjxPzXPeCD8HWPXFaQsT6SSFC-Ul0ReKO3F6hr-bFCmkH0smeRibaAsU&usqp=CAU",
-},
-{
-  name: "Bluetooth Headphones",
-  image:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-omhbgvMeZoAIjxPzXPeCD8HWPXFaQsT6SSFC-Ul0ReKO3F6hr-bFCmkH0smeRibaAsU&usqp=CAU",
-},
-{
-  name: "Bluetooth Headphones",
-  image:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-omhbgvMeZoAIjxPzXPeCD8HWPXFaQsT6SSFC-Ul0ReKO3F6hr-bFCmkH0smeRibaAsU&usqp=CAU",
-},
-{
-  name: "Bluetooth Headphones",
-  image:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-omhbgvMeZoAIjxPzXPeCD8HWPXFaQsT6SSFC-Ul0ReKO3F6hr-bFCmkH0smeRibaAsU&usqp=CAU",
-},
-{
-  name: "Bluetooth Headphones",
-  image:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-omhbgvMeZoAIjxPzXPeCD8HWPXFaQsT6SSFC-Ul0ReKO3F6hr-bFCmkH0smeRibaAsU&usqp=CAU",
-},
-{
-  name: "Bluetooth Headphones",
-  image:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-omhbgvMeZoAIjxPzXPeCD8HWPXFaQsT6SSFC-Ul0ReKO3F6hr-bFCmkH0smeRibaAsU&usqp=CAU",
-},
-{
-  name: "Bluetooth Headphones",
-  image:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-omhbgvMeZoAIjxPzXPeCD8HWPXFaQsT6SSFC-Ul0ReKO3F6hr-bFCmkH0smeRibaAsU&usqp=CAU",
 },];
 
 const searchInput = document.getElementById("searchInput");

@@ -1,9 +1,9 @@
 .meet {
-  margin-top: 100px; 
+  margin-top: 100px;
   justify-content: space-between;
   align-items: center;
-  font-family:Arial, Helvetica, sans-serif;
-  font-size:2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
   text-align: center;
   padding: 0.5rem 1rem;
 }
@@ -19,19 +19,19 @@
 }
 
 .card {
-  background: #fff; 
+  background: #fff;
   padding: 30px 20px;
   text-align: center;
   transition: all 0.4s ease;
-  cursor:copy;
+  cursor: copy;
   position: relative;
   overflow: hidden;
-    border-radius: 4px;
-    margin: 30px 0;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12),
-      0 8px 20px rgba(0, 0, 0, 0.08),
-      inset 0 1px 2px rgba(255, 255, 255, 0.4);
-  
+  border-radius: 4px;
+  margin: 30px 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12),
+    0 8px 20px rgba(0, 0, 0, 0.08),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4);
+
 }
 
 .card::before {
@@ -106,6 +106,7 @@
 .socials a:hover {
   transform: scale(1.15);
 }
+
 .socials a:hover:nth-child(1) {
   color: rgba(6, 192, 6, 0.814);
 }
@@ -117,6 +118,7 @@
 .socials a:hover:nth-child(3) {
   color: rgba(5, 175, 201, 0.814);
 }
+
 @media (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;
@@ -124,6 +126,7 @@
     margin: auto;
     padding: 0 20px;
   }
+
   .meet {
     margin-top: 50px;
   }

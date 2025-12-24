@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    {{>headerlink}}
+</head>
+<body> 
+  {{>header}}
+  {{>fab}}
+  <div class="register-page-wrapper">
+    {{#if success}}
+  <div id="notify" class="form-alert success-msg">
+    {{success}}
+  </div>
+  {{/if}}
+  {{#if error }}
+  <div id="notify" class="form-alert error-msg">
+    {{error}}
+  </div>
+  {{/if}}
+
+    <form action="/login" method="POST">
+     <input name="email" type="email" placeholder="Email" required /> 
+     <div class="password-field">
+  <input type="password" id="password" name="password" placeholder="Password" required />
+  <i class="bx bx-show toggle-eye" onclick="togglePassword('password', this)"></i>
+</div>
+     <button type="submit">Login</button>
+    </form>
+
+    <div class="register-footer">
+      Back to registration? <a href="/register">Register</a>
+    </div>
+  </div>
+
+  {{>footer}}
+</body>
+ <script src="/js/togglepass.js"></script>
+<script src="/js/mailacc.js"></script>
+ </html>
