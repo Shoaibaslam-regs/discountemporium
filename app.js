@@ -5,7 +5,8 @@ const session = require("express-session");
 require("dotenv").config();
 
 const connectDB = require("./config/db");
-connectDB();
+connectDB().catch(err => {
+   console.error("DB connection failed", err);});
 
 const app = express();
 app.use(
@@ -53,6 +54,10 @@ app.get("/index", (req, res) => {
 
    res.render("index", { success, error });
 });
+app.get("/health", (req, res) => {
+   res.json({ status: "OK" });
+ });
+ 
 app.get("/about", (req, res) => res.render("about"));
 app.get("/women", (req, res) => res.render("women"));
 app.get("/save", (req, res) => res.render("save"));
