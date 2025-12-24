@@ -94,8 +94,12 @@ app.get("/login", (req, res) => {
 
    res.render("login", { error, success });
 });
-
-const port = process.env.PORT || 3000;
-app.listen(port, () =>
-   console.log(`🚀 Server running at http://localhost:${port}`)
-);
+app.get("/", (req, res) => {
+   res.json({ message: "API running on Vercel" });
+ });
+ 
+// const port = process.env.PORT || 3000;
+// app.listen(port, () =>
+//    console.log(`🚀 Server running at http://localhost:${port}`)
+// );
+module.exports = app;
