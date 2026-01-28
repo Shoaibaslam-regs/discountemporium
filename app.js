@@ -11,7 +11,8 @@ connectDB().catch(err => {
 const app = express();
 app.use(
    session({
-      secret: "your_secret_key",
+      // secret: "your_secret_key",
+      secret:"SESSION_SECRET",
       resave: false,
       saveUninitialized: false,
       cookie: { maxAge: 1000 * 60 * 60 }, 
@@ -92,8 +93,8 @@ app.get("/login", (req, res) => {
    let error = req.session.error;
    let success = req.session.success;
 
-   if (req.query.logout === "true") {
-      success = "You have been logged out successfully.";
+   if (req.query.logout === "true") { 
+   success = "You have been logged out successfully.";
    }
    req.session.error = null;
    req.session.success = null;
