@@ -12,9 +12,12 @@ const app = express();
 app.use(
    session({
       // secret: "your_secret_key",
-      secret:"SESSION_SECRET",
+      secret:process.env.SESSION_SECRET,
       resave: false,
       saveUninitialized: false,
+      store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+    }),
       cookie: { maxAge: 1000 * 60 * 60 }, 
    })
 );  

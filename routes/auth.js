@@ -2,7 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const validateEmail = require("../utils/validateEmail");
-
+const connectDB = require("../config/db");
 const router = express.Router();
 
  router.get("/auth-status", (req, res) => {
@@ -12,7 +12,10 @@ const router = express.Router();
 });
 
 router.post("/register", async (req, res) => {
-  const { name, email, password, confirmPassword } = req.body;
+  
+  try{
+    await connectDB();
+    const { name, email, password, confirmPassword } = req.body;
 
   if (password !== confirmPassword) {
     req.session.error = "Passwords do not match";
@@ -37,13 +40,19 @@ router.post("/register", async (req, res) => {
 
   req.session.success = "Registration successful. You can login now.";
   res.redirect("/login");
+}catch(err){
+   console.error("REGISTER ERROR:", err);
+    req.session.error = "Server error";
+    res.redirect("/register");
+}
 
 });
 
 router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-
+  
   try {
+    await connectDB();
+    const { email, password } = req.body;
     const user = await User.findOne({ email });
 
     if (!user) {
