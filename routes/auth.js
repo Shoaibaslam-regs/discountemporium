@@ -14,8 +14,8 @@ const router = express.Router();
 router.post("/register", async (req, res) => {
   
   try{
-    await connectDB();
     const { name, email, password, confirmPassword } = req.body;
+    await connectDB();
 
   if (password !== confirmPassword) {
     req.session.error = "Passwords do not match";
@@ -102,5 +102,5 @@ router.get("/logout", (req, res) => {
   });
 });
 
-module.exports = router;
+module.exports = router; 
  
