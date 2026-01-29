@@ -7,11 +7,10 @@ const MongoStore = require("connect-mongo");
 const connectDB = require("./config/db");
 connectDB().catch(err => {
    console.error("DB connection failed", err);});
-
+const purchaseroute = require("./routes/purchase");
 const app = express();
 app.use(
    session({
-      // secret: "your_secret_key",
       secret:process.env.SESSION_SECRET,
       resave: false,
       saveUninitialized: false,
@@ -41,8 +40,7 @@ app.use("/", savedRoutes);
 app.use("/", redirectRoutes);
 app.use("/", authStatusRoutes);
 app.use("/api/products", productRoutes);
-
-
+app.use("/api",purchaseroute);
 
 
 app.get("/", (req, res) => res.render("splash"));

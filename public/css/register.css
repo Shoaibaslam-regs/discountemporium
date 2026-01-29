@@ -120,6 +120,7 @@
 }
 
 .error-msg {
+  width: 30%;
   background: linear-gradient(145deg, #ff6348c4, #fbe1e69b);
   color: #c00707;
   box-shadow:
@@ -128,6 +129,7 @@
 }
 
 .success-msg {
+  width: 30%;
   background: linear-gradient(145deg, #f0fff0, #ccffcc);
   color: #2e7d32;
   border: 1px solid #b2ffb2;

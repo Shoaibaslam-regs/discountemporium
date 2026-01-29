@@ -71,17 +71,18 @@ router.post("/login", async (req, res) => {
     
     const redirectUrl = req.session.redirectAfterLogin;
     req.session.redirectAfterLogin = null;
+    
 
     if (redirectUrl) {
       return res.redirect(`/go?url=${encodeURIComponent(redirectUrl)}`);
     } 
 
-    req.session.success = "Login successful!";
+    req.session.success = "Login successful !";
     return res.redirect("/index");  
   
   } catch (err) {
     console.log(err);
-    req.session.error = "Something went wrong!";
+    req.session.error = "Something went wrong !";
     return res.redirect("/login");
   }
 }); 
@@ -97,7 +98,6 @@ router.get("/logout", (req, res) => {
     }
 
     res.clearCookie("connect.sid");
- 
     res.redirect("/login?logout=true");
   });
 });

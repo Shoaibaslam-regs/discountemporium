@@ -27,18 +27,20 @@ const modalDetails = document.createElement("div");
 modalDetails.className = "modal-details";
 modal.appendChild(modalDetails);
 
+let currentBag = null; 
+ 
 document.addEventListener("click", (e) => {
   if (e.target.tagName === "IMG") {
     const index = e.target.dataset.index;
-    const bag = bags[index];
+    currentBag = bags[index];
     modal.style.display = "block"; 
-    modalImg.src = bag.image;
+    modalImg.src = currentBag.image;
     modalDetails.innerHTML = `
-      <p class="modal-discount">${bag.discount}</p>
-      <h2 class="modal-title">${bag.description}<span> (${bag.site})</span></h2>
-      <p class="modal-original">${bag.originalPrice}</p>
-      <p class="modal-price">${bag.price}</p>
-      <button class="modal-order-btn" onclick="handleRedirect('${bag.orderLink}')">
+      <p class="modal-discount">${currentBag.discount}</p>
+      <h2 class="modal-title">${currentBag.description}<span> (${currentBag.site})</span></h2>
+      <p class="modal-original">${currentBag.originalPrice}</p>
+      <p class="modal-price">${currentBag.price}</p>
+      <button class="modal-order-btn" onclick="handleRedirect('${currentBag.orderLink}')">
         🛒 Order Now
       </button>
     `;
