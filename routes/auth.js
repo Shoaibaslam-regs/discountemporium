@@ -68,18 +68,25 @@ router.post("/login", async (req, res) => {
 
      req.session.userId = user._id;
      req.session.userEmail = user.email;
+     req.session.success = "Login successful !";
     
     const redirectUrl = req.session.redirectAfterLogin;
     req.session.redirectAfterLogin = null;
     
+  req.session.save(err => {
+      if (err) {
+        console.error("SESSION SAVE ERROR:", err);
+        req.session.error = "Session error!";
+        return res.redirect("/login");
+      }
 
-    if (redirectUrl) {
-      return res.redirect(`/go?url=${encodeURIComponent(redirectUrl)}`);
-    } 
+      if (redirectUrl) {
+        return res.redirect(`/go?url=${encodeURIComponent(redirectUrl)}`);
+      }
 
-    req.session.success = "Login successful !";
-    return res.redirect("/index");  
-  
+      return res.redirect("/index");
+    });
+ 
   } catch (err) {
     console.log(err);
     req.session.error = "Something went wrong !";

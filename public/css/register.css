@@ -74,7 +74,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
-}
+} 
 
 .register-page-wrapper button:hover {
   opacity: 0.9;
@@ -151,12 +151,25 @@
   .register-page-wrapper {
     margin-top: 30%;
   }
+
+.error-msg{
+  width: 25%;
+}
+.success-msg{
+  width: 15%;
+}
 }
 
 @media (max-width: 480px) {
   .register-page-wrapper {
     margin-top: 30%;
   }
+}
+.error-msg{
+  width: 50%;
+}
+.success-msg{
+  width: 50%;
 }
 
 .password-field {
@@ -179,7 +192,32 @@
   font-size: 18px;
   color: #79787875;
 }
-
-.toggle-eye:hover {
-  color: #e80808c6;
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
+
+.toggle-btn i {
+  font-size: 16px;
+}
+ 
+.toggle-btn {
+  width: 90%;
+  padding: 12px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 8px; 
+  background-color: none;
+  color:#777777d0;
+  font-size: 12px; 
+  cursor: pointer;
+  transition: 0.3s;
+} 
+.toggle-btn:hover {
+   color: #00000045;
+   }
+ 
+
+  

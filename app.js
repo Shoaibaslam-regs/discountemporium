@@ -9,14 +9,31 @@ connectDB().catch(err => {
    console.error("DB connection failed", err);});
 const purchaseroute = require("./routes/purchase");
 const app = express();
+// app.use(
+//    session({
+//       secret:process.env.SESSION_SECRET,
+//       resave: false,
+//       saveUninitialized: false,
+//       cookie: { maxAge: 1000 * 60 * 60 }, 
+//    })
+// );  
+app.set("trust proxy", 1); // deploy ke liye MUST
+
 app.use(
-   session({
-      secret:process.env.SESSION_SECRET,
-      resave: false,
-      saveUninitialized: false,
-      cookie: { maxAge: 1000 * 60 * 60 }, 
-   })
-);  
+  session({
+    name: "sessionId",
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60,
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax"
+    }
+  })
+);
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

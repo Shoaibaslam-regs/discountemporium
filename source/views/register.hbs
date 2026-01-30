@@ -12,24 +12,24 @@
 <body>
 
   {{>header}}
- {{>fab}}
+  {{>fab}}
 
 
   <div class="register-page-wrapper">
     <h2>Create Account <span><a href="/index"><i class="bx bx-home"></i></a>
       </span>
     </h2>
-  {{#if error}}
-  <div id="notify" class="form-alert error-msg">
-    {{error}}
-  </div>
-  {{/if}}
+    {{#if error}}
+    <div id="notify" class="form-alert error-msg">
+      {{error}}
+    </div>
+    {{/if}}
 
-  {{#if success}}
-  <div id="notify" class="form-alert success-msg">
-    {{success}}
-  </div>
-  {{/if}}
+    {{#if success}}
+    <div id="notify" class="form-alert success-msg">
+      {{success}}
+    </div>
+    {{/if}}
 
     <form action="/register" method="POST">
       <input type="text" name="name" maxlength="14" placeholder="Full Name" required />
@@ -37,15 +37,16 @@
       <input type="email" name="email" maxlength="25" placeholder="Email" required />
       <small class="error"></small>
       <div class="password-field">
-        <input type="password" id="password" name="password" minlength="6" placeholder="Password" required />
-        <i class="bx bx-show toggle-eye" onclick="togglePassword('password', this)"></i>
+        <input type="password" id="password" minlength="6" name="password" placeholder="Password" required />
       </div>
 
       <div class="password-field">
-        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required />
-        <i class="bx bx-show toggle-eye" onclick="togglePassword('confirmPassword', this)"></i>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
       </div>
-
+      <button1 type="button" class="toggle-btn" onclick="toggleBothPasswords(this)">
+        <i class="bx bx-show"></i>
+        <span>Show Passwords</span>
+      </button1>
       <button type="submit">Register</button>
     </form>
 
@@ -53,9 +54,10 @@
       Already have an account? <a href="/login">Login</a>
     </div>
   </div>
-{{>footer}}
+  {{>footer}}
 </body>
-<script src="/js/togglepass.js"></script> 
 <script src="/js/mailacc.js"></script>
+<script src="/js/showhide.js"></script>
+<script src="/js/validate.js"></script>
 
 </html>

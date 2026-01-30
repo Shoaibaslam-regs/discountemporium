@@ -8,7 +8,7 @@ router.post("/purchase", async (req, res) => {
     res.json({ success: true });
   } catch (err) {
     console.error("DB ERROR:", err);
-    res.status(500).json({ success: false });
+    res.status(500).json({ success: false});
   }
 });
 module.exports = router;
