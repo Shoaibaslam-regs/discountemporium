@@ -13,10 +13,9 @@
 }
 
 .register-page-wrapper h2 {
-  background: linear-gradient(#ff416de2, #ff4b2bd9);
+  background: linear-gradient(90deg, #ff416c, #ff4b2b);
   background-clip: text;
   color: transparent;
-
   margin-bottom: 25px;
   font-size: 20px;
   font-weight: 600;
@@ -31,11 +30,11 @@
   background: linear-gradient(#ff416d8c, #ff4b2b77);
   background-clip: text;
   color: transparent;
-  
+
 }
 
 .register-page-wrapper h2 span a:hover {
-  
+
   background: linear-gradient(#ffe11bc3, hsl(64, 67%, 49%));
   background-clip: text;
   color: transparent;
@@ -138,6 +137,15 @@
     inset -2px -2px 5px rgba(255, 255, 255, 0.6);
 }
 
+.error {
+  position: absolute;
+  padding: 4px 8px;
+  margin: -8px -262px;
+  border-radius: 4px;
+  color: red;
+  font-size: 8px;
+  transition: opacity .3s;
+}
 
 @media (max-width: 768px) {
   .register-page-wrapper {
