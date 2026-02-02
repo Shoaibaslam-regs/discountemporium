@@ -61,23 +61,13 @@ visit:"/women",
 {
   name: "Shoes",
   image:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-omhbgvMeZoAIjxPzXPeCD8HWPXFaQsT6SSFC-Ul0ReKO3F6hr-bFCmkH0smeRibaAsU&usqp=CAU",
+    "https://t3.ftcdn.net/jpg/04/36/65/92/360_F_436659277_vp2706cMybOmUSoGNbRDGeGWttlVOqL9.jpg",
   visit:"/shoes"
   },
-{
-  name: "Bluetooth Headphones",
+ {
+  name: "More...",
   image:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-omhbgvMeZoAIjxPzXPeCD8HWPXFaQsT6SSFC-Ul0ReKO3F6hr-bFCmkH0smeRibaAsU&usqp=CAU",
-},
-{
-  name: "Bluetooth Headphones",
-  image:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-omhbgvMeZoAIjxPzXPeCD8HWPXFaQsT6SSFC-Ul0ReKO3F6hr-bFCmkH0smeRibaAsU&usqp=CAU",
-},
-{
-  name: "Bluetooth Headphones",
-  image:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-omhbgvMeZoAIjxPzXPeCD8HWPXFaQsT6SSFC-Ul0ReKO3F6hr-bFCmkH0smeRibaAsU&usqp=CAU",
+    "https://media.istockphoto.com/id/2173059563/vector/coming-soon-image-on-white-background-no-photo-available.jpg?s=612x612&w=0&k=20&c=v0a_B58wPFNDPULSiw_BmPyhSNCyrP_d17i2BPPyDTk=",
 },];
 
 const searchInput = document.getElementById("searchInput");
