@@ -3,37 +3,30 @@ const path = require("path");
 const hbs = require("hbs");
 const session = require("express-session");
 require("dotenv").config();
-const MongoStore = require("connect-mongo");
+// const MongoStore = require("connect-mongo");
+// const cors = require("cors");
 const connectDB = require("./config/db");
 connectDB().catch(err => {
    console.error("DB connection failed", err);});
-const purchaseroute = require("./routes/purchase");
+   const purchaseroute = require("./routes/purchase");
 const app = express();
-// app.use(
-//    session({
-//       secret:process.env.SESSION_SECRET,
-//       resave: false,
-//       saveUninitialized: false,
-//       cookie: { maxAge: 1000 * 60 * 60 }, 
-//    })
-// );  
-app.set("trust proxy", 1); // deploy ke liye MUST
+app.set("trust proxy", 1);
 
 app.use(
   session({
     name: "sessionId",
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: false,  
     cookie: {
       maxAge: 1000 * 60 * 60,
-      httpOnly: true,
+      httpOnly: true, 
       secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax"
+      sameSite: process.env.NODE_ENV === "lax"
     }
   })
 );
-
+  
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

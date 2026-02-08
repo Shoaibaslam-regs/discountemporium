@@ -27,7 +27,7 @@ function handleRedirect(url) {
         sessionStorage.setItem("pendingOrderLink", url);
 
         fetch("/save-redirect", {
-          method: "POST",
+          method: "POST", 
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ url })
         });
@@ -50,7 +50,7 @@ function handleRedirect(url) {
 async function savePurchase(bag, url, user) {
   try {
     await fetch("/api/purchase", {
-      method: "POST",
+      method: "POST", 
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         userId: user.userId,
