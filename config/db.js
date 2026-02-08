@@ -17,6 +17,8 @@ if (!process.env.MONGO_URI) {
   if (!cached.promise) {
     cached.promise = mongoose.connect(process.env.MONGO_URI, {
       bufferCommands: false,
+      serverSelectionTimeoutMS: 30000,
+      socketTimeoutMS: 45000,
     }).then((mongoose) => mongoose);
   }
 
