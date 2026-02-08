@@ -14,7 +14,7 @@ document.getElementById("authOverlay").addEventListener("click", function (e) {
   if (e.target.id === "authOverlay") hideAuthPopup();
 });
 
-function handleRedirect(url) {
+async function handleRedirect(url) {
   fetch("/auth-status")
     .then(res => res.json())
     .then(async auth => {
@@ -26,7 +26,7 @@ function handleRedirect(url) {
         sessionStorage.setItem("pendingPurchase", JSON.stringify(currentBag));
         sessionStorage.setItem("pendingOrderLink", url);
 
-        fetch("/save-redirect", {
+        await fetch("/save-redirect", {
           method: "POST", 
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ url })

@@ -3,13 +3,18 @@ const path = require("path");
 const hbs = require("hbs");
 const session = require("express-session");
 require("dotenv").config();
-// const MongoStore = require("connect-mongo");
-// const cors = require("cors");
+const MongoStoreModule = require("connect-mongo");
+const purchaseroute = require("./routes/purchase");
 const connectDB = require("./config/db");
-connectDB().catch(err => {
-   console.error("DB connection failed", err);});
-   const purchaseroute = require("./routes/purchase");
+const MongoStore = MongoStoreModule.default || MongoStoreModule;
+
 const app = express();
+
+connectDB()
+.then(() => console.log("DB Connected"))
+.catch(err => console.log("DB Connection Failed", err));
+
+
 app.set("trust proxy", 1);
 
 app.use(
@@ -18,11 +23,16 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,  
+      store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+      ttl: 14 * 24 * 60 * 60,
+  }),
     cookie: {
       maxAge: 1000 * 60 * 60,
       httpOnly: true, 
       secure: process.env.NODE_ENV === "production",
       sameSite: process.env.NODE_ENV === "lax"
+    
     }
   })
 );
@@ -38,6 +48,7 @@ const partialsPath = path.join(__dirname, "./source/partials");
 app.set("view engine", "hbs");
 app.set("views", viewsPath);
 hbs.registerPartials(partialsPath);
+
 const authRoutes = require("./routes/auth");
 const productRoutes = require("./routes/products");
 const redirectRoutes = require("./routes/redirect");

@@ -9,9 +9,10 @@ router.get("/auth-status", (req, res) => {
 
  
 router.get("/current-user", (req, res) => {
-  if (!req.session.userId) {
+  if (!req.session.userId) 
     return res.json({ loggedIn: false });
-  }
+    
+  
   res.json({
     loggedIn: true,
     userId: req.session.userId,
