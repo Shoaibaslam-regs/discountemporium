@@ -7,6 +7,7 @@ const MongoStoreModule = require("connect-mongo");
 const purchaseroute = require("./routes/purchase");
 const connectDB = require("./config/db");
 const MongoStore = MongoStoreModule.default || MongoStoreModule;
+const Visit = require("./models/Visit");
 
 const app = express();
 
@@ -62,9 +63,48 @@ app.use("/", redirectRoutes);
 app.use("/", authStatusRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api",purchaseroute);
+const statsRoutes = require("./routes/stats");
+app.use("/api/stats", statsRoutes);
 
 
-app.get("/", (req, res) => res.render("splash"));
+// app.get("/", (req, res) => res.render("splash"));
+// Homepage visit tracking
+app.get("/", async (req, res) => {
+  try {
+    await Visit.create({
+      userId: req.session.userId || null,
+      ip: req.ip,
+      page: "/"
+    });
+    console.log("Homepage visit saved");
+  } catch (err) {
+    console.error("Visit save error:", err);
+  }
+  res.render("splash");
+});
+
+// Index page visit tracking
+app.get("/index", async (req, res) => {
+  const success = req.session.success;
+  const error = req.session.error;
+
+  req.session.success = null;
+  req.session.error = null;
+
+  try {
+    await Visit.create({
+      userId: req.session.userId || null,
+      ip: req.ip,
+      page: "/index"
+    });
+    console.log("Index page visit saved");
+  } catch (err) {
+    console.error("Visit save error:", err);
+  }
+
+  res.render("index", { success, error });
+});
+
 app.get("/skeleton", (req, res) => res.render("skeleton"));
 app.get("/index", (req, res) => {
    const success = req.session.success;
@@ -78,7 +118,7 @@ app.get("/index", (req, res) => {
 app.get("/health", (req, res) => {
    res.json({ status: "OK" });
  });
- 
+
 app.get("/about", (req, res) => res.render("about"));
 app.get("/women", (req, res) => res.render("women"));
 app.get("/save", (req, res) => res.render("save"));
@@ -90,7 +130,8 @@ app.get("/clothings", (req, res) => res.render("clothings"));
 app.get("/shoes", (req, res) => res.render("shoes"));
 app.get("/cosmetic", (req, res) => res.render("cosmetic"));
 app.get("/sports", (req, res) => res.render("sports"));
-
+app.get("/chart", (req, res) => res.render("chart"));
+ 
 app.get("/register", (req, res) => {
    console.log("ERROR:", req.session.error);
    console.log("SUCCESS:", req.session.success);

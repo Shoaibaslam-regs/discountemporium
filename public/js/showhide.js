@@ -14,7 +14,7 @@ function toggleBothPasswords(btn) {
   icon.classList.toggle("bx-show", !isHidden);
   icon.classList.toggle("bx-hide", isHidden);
  
-  text.textContent = isHidden ? "Hide Passwords" : "Show Passwords";
+ text.textContent = isHidden ? "Hide Passwords" : "Show Passwords";
 }
 
 const notify = document.getElementById("notify");
