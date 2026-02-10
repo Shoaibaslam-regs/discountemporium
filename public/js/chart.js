@@ -22,7 +22,7 @@ async function loadCharts() {
     data: {
       labels: visitsLabels,
       datasets: [{
-        label: "Users Visiting the Site",
+        label: "Visitor Footfall",
         data: visitsData,
         backgroundColor: visitColors,
         borderColor: 'rgba(255, 159, 64, 1)',
@@ -35,7 +35,7 @@ async function loadCharts() {
       aspectRatio: 2,  
       plugins: {
         legend: { display: true, position: 'top' },
-        title: { display: true, text: 'Daily User Visits', font: { size: 18 } }
+        title: { display: true, text: 'Visitor Traffic', font: { size: 12 } }
       },
       scales: {
         y: { beginAtZero: true },
@@ -49,7 +49,7 @@ async function loadCharts() {
     data: {
       labels: redirectsLabels,
       datasets: [{
-        label: "Redirect Button Clicks",
+        label: "Redirect",
         data: redirectsData,
         borderColor: 'rgba(54, 162, 235, 1)',
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
@@ -63,7 +63,7 @@ async function loadCharts() {
       responsive: true,
       plugins: {
         legend: { display: true, position: 'top' },
-        title: { display: true, text: 'Daily Redirect ', font: { size: 18 } }
+        title: { display: true, text: 'Outbound Clicks ', font: { size: 12 } }
       },
       scales: {
         y: { beginAtZero: true },
